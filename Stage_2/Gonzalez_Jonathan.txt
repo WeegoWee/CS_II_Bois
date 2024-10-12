@@ -1,0 +1,1 @@
+We worked together on the UML diagram using Lucid Chart to set up the classes.
