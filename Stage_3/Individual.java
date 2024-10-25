@@ -2,11 +2,11 @@
 public class Individual {
     
     private String name;
-    private String contactInformation;
+    private String contactInfo;
     
-    public Individual(String name, String contactInformation){
+    public Individual(String name, String contactInfo){
         this.name = name;
-        this.contactInformation = contactInformation;
+        this.contactInfo = contactInfo;
         
     }
 
@@ -19,12 +19,14 @@ public class Individual {
     }
 
     public String getContactInformation() {
-        return contactInformation;
+        return contactInfo;
     }
 
     public void setContactInformation(String contactInformation) {
-        this.contactInformation = contactInformation;
+        this.contactInfo = contactInformation;
     }
     
-    
+    public void showInfo(){
+        
+    }
 }

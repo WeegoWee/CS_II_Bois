@@ -1,22 +1,34 @@
 
-public class Waiter {
-    private String order;
+public class Waiter extends Staff{
+    private Order order;
     private String name;
     private String employeeID;
-    private Individual contactinfo;
+    private String contactInfo;
 
-    public Waiter(String order, String name, String employeeID, Individual contactinfo) {
+    /**
+     *
+     * @param order
+     * @param name
+     * @param employeeID
+     * @param contactInfo
+     * @param name
+     * @param contactInfo
+     * @param employeeID
+     * @param duties
+     */
+    public Waiter(Order order, String name, String employeeID, String contactInfo) {
+        super(name, contactInfo, employeeID, duties);
         this.order = order;
         this.name = name;
         this.employeeID = employeeID;
-        this.contactinfo = contactinfo;
+        this.contactInfo = contactInfo;
     }
-
-    public String getOrder() {
+   
+    public Order getOrder() {
         return order;
     }
 
-    public void setOrder(String order) {
+    public void setOrder(Order order) {
         this.order = order;
     }
 
@@ -36,17 +48,14 @@ public class Waiter {
         this.employeeID = employeeID;
     }
 
-    public Individual getContactinfo() {
-        return contactinfo;
+    public String getContactInfo() {
+        return contactInfo;
     }
 
-    public void setContactinfo(Individual contactinfo) {
-        this.contactinfo = contactinfo;
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
     }
     
-    public void showInfo(){
-        
-    }
     
     
 }
