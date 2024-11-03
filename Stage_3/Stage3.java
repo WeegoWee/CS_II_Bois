@@ -7,7 +7,7 @@ public class Stage3 {
         Individual emp2 = new Staff("Alton", "444", "654", "Dish Washer");
         Individual emp3 = new Staff("John", "333", "744", "Buser");
         
-        Individual table1 = new Customer()
+        Individual table1 = new Customer(123,"Burger", "Paola", "12324455");
         
         Waiter wait1 = new Waiter("Paul", "234", "789");
         Waiter wait2 = new Waiter("Rigo", "666", "987");
