@@ -36,6 +36,9 @@ public class Waiter{
         this.contactInfo = contactInfo;
     }
     
-    
+    public void showInfo()
+    {
+        
+    }
     
 }

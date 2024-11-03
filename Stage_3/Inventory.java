@@ -1,20 +1,13 @@
 public class Inventory{
     private String food;
     private String drinks;
-    private short totalFood;
-    private short totalDrinks;
-    private Menu items;
+    private int totalFood;
+    private float price;
 
-    public Inventory(String food, short totalFood, Menu items){
+    public Inventory(String food, int totalFood, float price) {
         this.food = food;
         this.totalFood = totalFood;
-        this.items = items;
-    }
-
-    public Inventory(String drinks, short totalDrinks, Inventory items){
-        this.drinks = drinks;
-        this.totalDrinks = totalDrinks;
-        this.items = items.items;
+        this.price = price;
     }
 
     public String getFood(){
@@ -25,12 +18,8 @@ public class Inventory{
         return drinks;
     }
 
-    public short getTotalFood(){
+    public int getTotalFood(){
         return totalFood;
-    }
-
-    public short getTotalDrink(){
-        return totalDrinks;
     }
 
     public void addFood(String food){
@@ -44,8 +33,7 @@ public class Inventory{
     public void setTotalFood(short totalFood){
         this.totalFood = totalFood;
     }
+    
+    
 
-    public void setTotalDrink(short totalDrinks){
-        this.totalDrinks = totalDrinks;
-    }
 }
