@@ -6,7 +6,7 @@ class Order{
     public Order(String orderID, Customer customer)
     {
         this.orderID = orderID;
-        Customer customer = new Customer();
+        
     }
 
     public String getOrderID() {

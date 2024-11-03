@@ -51,6 +51,5 @@ public class Restraunt extends Menu {
     @Override
     public void showInfo(){
         System.out.printf("\t%s",getRestaurantName());
-        Super.getMenu();
     }
 }

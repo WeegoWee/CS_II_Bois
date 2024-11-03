@@ -1,23 +1,12 @@
 
-public class Waiter extends Staff{
+public class Waiter extends Individual{
     private Order order;
     private String name;
     private String employeeID;
     private String contactInfo;
 
-    /**
-     *
-     * @param order
-     * @param name
-     * @param employeeID
-     * @param contactInfo
-     * @param name
-     * @param contactInfo
-     * @param employeeID
-     * @param duties
-     */
     public Waiter(Order order, String name, String employeeID, String contactInfo) {
-        super(name, contactInfo, employeeID, duties);
+        super(name, contactInfo);
         this.order = order;
         this.name = name;
         this.employeeID = employeeID;
