@@ -1,59 +1,25 @@
-
-public class CreditCardPayment extends Payment{
+public class CreditCardPayment extends Payment {
     private String tableID;
-    private float totalPrice;
-    private float discount;
-    private float paymentAmount;
+    private String cardNumber;
+    private String expirationDate;
 
-    public CreditCardPayment(String tableID, float totalPrice, float discount, float paymentAmount) {
-        super(totalPrice, discount);
-        this.tableID = tableID;
-        this.totalPrice = totalPrice;
-        this.discount = discount;
-        this.paymentAmount = paymentAmount;
+    public CreditCardPayment(float totalPrice, String cardNumber, String expirationDate) {
+        super(totalPrice);
+        this.cardNumber = cardNumber;
+        this.expirationDate = expirationDate;
     }
 
-    public String getTableID() {
-        return tableID;
+    public String getCardNumber() {
+        return cardNumber;
     }
 
-    public void setTableID(String tableID) {
-        this.tableID = tableID;
+    public String getCardExpiration() {
+        return expirationDate;
     }
 
-    @Override
-    public float getTotalPrice() {
-        return totalPrice;
+    public void paymentDetails() {
+        System.out.println("Card Number: " + cardNumber);
+        System.out.println("Expiration Date: " + expirationDate);
+        System.out.println("Payment Amount: " + getPaymentAmount());
     }
-
-    @Override
-    public void setTotalPrice(float totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    @Override
-    public float getDiscount() {
-        return discount;
-    }
-
-    @Override
-    public void setDiscount(float discount) {
-        this.discount = discount;
-    }
-
-    @Override
-    public float getPaymentAmount() {
-        return paymentAmount;
-    }
-
-    @Override
-    public void setPaymentAmount(float paymentAmount) {
-        this.paymentAmount = paymentAmount;
-    }
-    
-    public void paymentDetails()
-    {
-        
-    }
-    
 }

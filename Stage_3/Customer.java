@@ -1,26 +1,25 @@
-public class Customer extends Individual{
+public class Customer extends Individual {
     private int rewardPoints;
     private String order;
 
-    public Customer(int rewardPoints, String order, String name, String contactInfo) {
-        super(name, contactInfo);
+    public Customer(String name, int rewardPoints) {
+        super(name, "");
         this.rewardPoints = rewardPoints;
-        this.order = order;
     }
 
-    public int getRewardPoints(){
+    public int getRewardPoints() {
         return rewardPoints;
     }
 
-    public void setRewardPoints(int rewardPoints){
+    public void setRewardPoints(int rewardPoints) {
         this.rewardPoints = rewardPoints;
     }
 
-    public void earnRewardPoints(){
-        rewardPoints += 10;
+    public void earnRewardPoints() {
+        rewardPoints += 10; // Example increment
     }
 
-    public String addOrder(String order){
+    public String addOrder(String order) {
         this.order = order;
         return this.order;
     }

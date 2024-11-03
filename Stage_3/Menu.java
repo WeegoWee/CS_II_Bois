@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-public class Menu{
+public class Menu {
     private ArrayList<Inventory> items;
 
-    public Menu(){
+    public Menu() {
         items = new ArrayList<>();
     }
 
@@ -15,17 +15,14 @@ public class Menu{
         items.remove(item);
     }
 
-    public void showMenu(){
+    public void showMenu() {
         for (Inventory item : items) {
-            System.out.println("Food: " + item.getFood() + ", Drink: " + item.getDrink());
+            System.out.println("Item: " + item.getItems() + " | Quantity: " + item.getTotalItems() + " | Price: " + item.getPrice());
         }
     }
 
-    public void showInfo(){
-        System.out.println("Menu Information:");
-        for (Inventory item : items) {
-            System.out.println("Food: " + item.getFood() + ", Quantity: " + item.getTotalFood());
-            System.out.println("Drink: " + item.getDrink() + ", Quantity: " + item.getTotalDrink());
-        }
+    public void showInfo() {
+        System.out.println("Menu Items:");
+        showMenu();
     }
 }

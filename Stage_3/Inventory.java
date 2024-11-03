@@ -1,39 +1,36 @@
-public class Inventory{
-    private String food;
-    private String drinks;
-    private int totalFood;
+public class Inventory {
+    private String items;
     private float price;
+    private short totalItems;
 
-    public Inventory(String food, int totalFood, float price) {
-        this.food = food;
-        this.totalFood = totalFood;
+    public Inventory(String items,short totalItems,float price) {
+        this.items = items;
+        this.totalItems = totalItems;
         this.price = price;
     }
 
-    public String getFood(){
-        return food;
+    public String getItems() {
+        return items;
     }
 
-    public String getDrink(){
-        return drinks;
+    public void setItems(String items) {
+        this.items = items;
     }
 
-    public int getTotalFood(){
-        return totalFood;
+    public float getPrice() {
+        return price;
     }
 
-    public void addFood(String food){
-        this.food = food;
+    public void setPrice(float price) {
+        this.price = price;
     }
 
-    public void addDrink(String drink){
-        this.drinks = drink;
+    public short getTotalItems() {
+        return totalItems;
     }
 
-    public void setTotalFood(short totalFood){
-        this.totalFood = totalFood;
+    public void setTotalItems(short totalItems) {
+        this.totalItems = totalItems;
     }
-    
-    
-
+                  
 }

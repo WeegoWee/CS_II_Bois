@@ -1,25 +1,22 @@
-/**
- *
- * @author fredp
- */
 import java.util.ArrayList;
-public class Restraunt extends Menu {
+
+public class Restaurant {
     private String restaurantName;
     private String location;
     private Menu menu;
-    private ArrayList<Staff> staffs;
-    
-    public Restraunt(String restaurantName, String location, Menu menu){
+    public ArrayList<Staff> staff;
+
+    public Restaurant(String restaurantName, String location, Menu menu) {
         this.restaurantName = restaurantName;
         this.location = location;
         this.menu = menu;
-        this.staffs = new ArrayList<>();
+        this.staff = new ArrayList<>();
     }
 
     public String getRestaurantName() {
         return restaurantName;
     }
-    
+
     public String getLocation() {
         return location;
     }
@@ -39,17 +36,21 @@ public class Restraunt extends Menu {
     public void setMenu(Menu menu) {
         this.menu = menu;
     }
-    
-    public void addStaff(Staff staff){
-        staffs.add(staff);
+
+    public void addStaff(Staff staff) {
+        this.staff.add(staff);
+    }
+
+    public void removeStaff(Staff staff) {
+        this.staff.remove(staff);
+    }
+
+    public void showInfo() {
+        System.out.println("Restaurant: " + restaurantName + ", Location: " + location);
     }
     
-    public void removeStaff(Staff staff){
-        staffs.remove(staff);
+    public ArrayList<Staff> getStaff() {
+        return staff;
     }
-    
-    @Override
-    public void showInfo(){
-        System.out.printf("\t%s",getRestaurantName());
-    }
+
 }

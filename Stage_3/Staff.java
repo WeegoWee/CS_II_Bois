@@ -1,14 +1,10 @@
-
-public class Staff extends Individual{
+public class Staff extends Individual {
     private String employeeID;
-    private String duties;
-    
-    public Staff(String name, String contactInfo, String employeeID, String duties) {
-        super(name, contactInfo);
+
+    public Staff(String name, String contactInformation, String employeeID) {
+        super(name, contactInformation);
         this.employeeID = employeeID;
-        this.duties = duties;
     }
-    
 
     public String getEmployeeID() {
         return employeeID;
@@ -18,14 +14,7 @@ public class Staff extends Individual{
         this.employeeID = employeeID;
     }
 
-    public String getDuties() {
-        return duties;
+    public void duties() {
+        // Implementation for duties (not specified in the UML)
     }
-
-    public void setDuties(String duties) {
-        this.duties = duties;
-    }
-    
-    
-    
 }

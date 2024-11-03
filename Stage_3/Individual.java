@@ -1,32 +1,25 @@
-
 public class Individual {
-    
     private String name;
-    private String contactInfo;
-    
-    public Individual(String name, String contactInfo){
+    private String contactInformation;
+
+    public Individual(String name, String contactInformation) {
         this.name = name;
-        this.contactInfo = contactInfo;
-        
+        this.contactInformation = contactInformation;
     }
 
     public String getName() {
         return name;
     }
 
+    public String getContactInformation() {
+        return contactInformation;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getContactInformation() {
-        return contactInfo;
-    }
-
     public void setContactInformation(String contactInformation) {
-        this.contactInfo = contactInformation;
-    }
-    
-    public void showInfo(){
-        
+        this.contactInformation = contactInformation;
     }
 }

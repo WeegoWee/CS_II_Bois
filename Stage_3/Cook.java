@@ -1,43 +1,38 @@
-
-public class Cook{
+public class Cook {
+    private Order order;
     private String name;
-    private String employeeID;
-    private Individual contactinfo;
-    
+    private Staff employeeID;
+    private Individual contactInfo;
 
-
-    public Cook(String name, String employeeID, String contactInfo) {
-        this.name = name;
-        this.employeeID = employeeID;
-        
+    public Cook(Order order) {
+        this.order = order;
     }
 
     public String getName() {
         return name;
     }
 
+    public String getEmployeeID() {
+        return employeeID.getEmployeeID();
+    }
+
+    public Individual getContactInfo() {
+        return contactInfo;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getEmployeeID() {
-        return employeeID;
-    }
-
-    public void setEmployeeID(String employeeID) {
+    public void setEmployeeID(Staff employeeID) {
         this.employeeID = employeeID;
     }
 
-    public Individual getContactinfo() {
-        return contactinfo;
+    public void prepareFood() {
+        // Implementation for preparing food
     }
 
-    public void setContactinfo(Individual contactinfo) {
-        this.contactinfo = contactinfo;
+    public void showInfo() {
+        System.out.println("Cook: " + name + ", Employee ID: " + employeeID.getEmployeeID());
     }
-    
-    public void showInfo(){
-        
-    }
-    
 }
