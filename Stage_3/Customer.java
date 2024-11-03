@@ -1,10 +1,11 @@
-public class Customer{
+public class Customer extends Individual{
     private int rewardPoints;
     private String order;
 
-    public Customer(String order, int rewardPoints) {
-        this.order = order;
+    public Customer(int rewardPoints, String order, String name, String contactInfo) {
+        super(name, contactInfo);
         this.rewardPoints = rewardPoints;
+        this.order = order;
     }
 
     public int getRewardPoints(){

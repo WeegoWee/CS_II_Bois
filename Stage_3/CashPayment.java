@@ -17,6 +17,11 @@ public class CashPayment extends Payment{
     public String getTableID() {
         return tableID;
     }
+    
+    public void paymentDetails()
+    {
+        
+    }
 
     @Override
     public float getTotalPrice() {
@@ -46,11 +51,6 @@ public class CashPayment extends Payment{
     @Override
     public void setPaymentAmount(float paymentAmount) {
         this.paymentAmount = paymentAmount;
-    }
-
-     public void paymentDetails()
-    {
-        
     }
     
 }

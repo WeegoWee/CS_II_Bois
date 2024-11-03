@@ -6,7 +6,7 @@ public class Cook{
     
 
 
-    public Cook(String order, String name, String employeeID, String contactInfo) {
+    public Cook(String name, String employeeID, String contactInfo) {
         this.name = name;
         this.employeeID = employeeID;
         
