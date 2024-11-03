@@ -1,28 +1,15 @@
 
-public class Cook extends Individual{
-    private String order;
+public class Cook{
     private String name;
     private String employeeID;
     private Individual contactinfo;
     
-    public Cook(String name, String contactInfo) {
-        super(name, contactInfo);
-    }
+
 
     public Cook(String order, String name, String employeeID, String contactInfo) {
-        super(name, contactInfo);
-        this.order = order;
         this.name = name;
         this.employeeID = employeeID;
         
-    }
-
-    public String getOrder() {
-        return order;
-    }
-
-    public void setOrder(String order) {
-        this.order = order;
     }
 
     public String getName() {

@@ -1,24 +1,14 @@
 
-public class Waiter extends Individual{
-    private Order order;
+public class Waiter{
     private String name;
     private String employeeID;
     private String contactInfo;
 
-    public Waiter(Order order, String name, String employeeID, String contactInfo) {
-        super(name, contactInfo);
-        this.order = order;
+    public Waiter(String name, String employeeID, String contactInfo) {
+        
         this.name = name;
         this.employeeID = employeeID;
         this.contactInfo = contactInfo;
-    }
-   
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
     }
 
     public String getName() {
@@ -28,6 +18,7 @@ public class Waiter extends Individual{
     public void setName(String name) {
         this.name = name;
     }
+
 
     public String getEmployeeID() {
         return employeeID;
