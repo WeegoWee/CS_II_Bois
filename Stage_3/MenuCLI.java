@@ -101,32 +101,37 @@ public class MenuCLI {
     
     // Display the order menu
     public void displayOrderMenu() {
-        while (true) {
-            System.out.println("*********************************");
-            System.out.println("*********************************");
-            System.out.println("\n*********** Order Menu **********");
-            System.out.println("|\t1. Place an Order\t|");
-            System.out.println("|\t2. View Orders\t\t|");
-            System.out.println("|\t3. Make Payment\t\t|");
-            System.out.println("|\t4. Remove an Order\t|");
-            System.out.println("|\t5. Back to Main Menu\t|");
-            System.out.println("Select an option: ");
-            System.out.println("*********************************");
-            System.out.println("*********************************");
+    while (true) {
+        System.out.println("*********************************");
+        System.out.println("*********************************");
+        System.out.println("\n*********** Order Menu **********");
+        System.out.println("|\t1. Place an Order\t|");
+        System.out.println("|\t2. View Orders\t\t|");
+        System.out.println("|\t3. Make Payment\t\t|");
+        System.out.println("|\t4. Remove an Order\t|");
+        System.out.println("|\t5. View Sales Report\t|"); 
+        System.out.println("|\t6. Back to Main Menu\t|");
+        System.out.println("Select an option: ");
+        System.out.println("*********************************");
+        System.out.println("*********************************");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
 
-            switch (choice) {
-                case 1:orderSystem.placeOrder();break;
-                case 2:orderSystem.viewOrders();break;
-                case 3:orderSystem.makePayment(); break;
-                case 4:orderSystem.removeOrder();break;
-                case 5:return;
-                default:System.out.println("Invalid choice. Please try again.");
+        switch (choice) {
+            case 1 -> orderSystem.placeOrder();
+            case 2 -> orderSystem.viewOrders();
+            case 3 -> orderSystem.makePayment();
+            case 4 -> orderSystem.removeOrder();
+            case 5 -> orderSystem.generateSalesReport();
+            // Display the sales report
+            case 6 -> {
+                return;
             }
+            default -> System.out.println("Invalid choice. Please try again.");
         }
     }
+}
     
     public static void main(String[] args) {
         Menu menu = new Menu();

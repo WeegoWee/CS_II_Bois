@@ -13,6 +13,6 @@ public class CashPayment extends Payment {
     @Override
     public void paymentDetails() {
         System.out.println("Table ID: " + tableID);
-        System.out.println("Payment Amount: " + getPaymentAmount());
+        System.out.printf("Payment Amount: $%.2f\n" , getPaymentAmount());
     }
 }

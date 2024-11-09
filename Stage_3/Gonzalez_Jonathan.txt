@@ -1,0 +1,2 @@
+Worked on all the classes for the system like OrderSystem, MenuCLI and Payment.
+Created a new updated UML diagram
