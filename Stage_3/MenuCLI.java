@@ -11,11 +11,11 @@ public class MenuCLI {
         this.orderSystem = new OrderSystem(restaurant.getMenu());
     }
 
+    //Displays initial menu 
     public void displayMainMenu() {
         while (true) {
             System.out.println("*********************************");
-            System.out.println("*********************************");
-            System.out.println("\n****** Corner Cafe System *******");
+            System.out.println("****** Corner Cafe System *******");
             System.out.println("|\t1. View Restaurant Info\t|");
             System.out.println("|\t2. Staff\t\t|");
             System.out.println("|\t3. Inventory\t\t|");
@@ -49,7 +49,7 @@ public class MenuCLI {
             }
         }
     }
-    
+    //displays staff menu after choosing option 2 in initial menu
     private void manageStaffMenu() {
         while (true) {
             System.out.println("*********************************");
@@ -84,6 +84,9 @@ public class MenuCLI {
         }
     }
 
+    /**
+     * This method received the the staff list from the restaurant class and displays it
+     */
     private void viewStaffMembers() {
         System.out.println("\nCurrent Staff:");
         if (restaurant.getStaff().isEmpty()) {
@@ -95,6 +98,9 @@ public class MenuCLI {
         }
     }
 
+    /**
+     * This method adds a staff member to the database of staff members
+     */
     private void addStaffMember() {
         System.out.print("Enter staff name: ");
         String name = scanner.nextLine();
@@ -108,6 +114,9 @@ public class MenuCLI {
         System.out.println("Staff member added successfully.");
     }
 
+    /**
+     * This method removes a staff member from the staff member list
+     */
     private void removeStaffMember() {
         System.out.print("Enter staff ID to remove: ");
         String employeeID = scanner.nextLine();
@@ -128,6 +137,9 @@ public class MenuCLI {
         }
     }
 
+    /**
+     * This menu has options for adding removing and viewing items in the menu
+     */
     private void manageMenu() {
         while (true) {
             System.out.println("*********************************");
@@ -161,6 +173,9 @@ public class MenuCLI {
         }
     }
 
+    /**
+     * This method adds items to the inventory list
+     */
     private void addMenuItem() {
         System.out.print("Enter item name: ");
         String itemName = scanner.nextLine();
@@ -175,6 +190,9 @@ public class MenuCLI {
         System.out.println("Item added successfully.");
     }
 
+    /**
+     * this method removes items from the inventory list
+     */
     private void removeMenuItem() {
         System.out.print("Enter item name to remove: ");
         String itemName = scanner.nextLine();
@@ -200,4 +218,5 @@ public class MenuCLI {
         MenuCLI cli = new MenuCLI(restaurant);
         cli.displayMainMenu();
     }
+    
 }
