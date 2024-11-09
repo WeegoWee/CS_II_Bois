@@ -4,12 +4,10 @@ public class MenuCLI {
     private Scanner scanner;
     private Restaurant restaurant;
     private OrderSystem orderSystem;
-    private Staff staffMembers;
 
     public MenuCLI(Restaurant restaurant) {
         this.scanner = new Scanner(System.in);
         this.restaurant = restaurant;
-        this.staffMembers = staffMembers;
         this.orderSystem = new OrderSystem(restaurant.getMenu());
     }
 
@@ -70,19 +68,63 @@ public class MenuCLI {
 
             switch (choice) {
                 case 1:
-                    staffMembers.viewStaffMembers();
+                    viewStaffMembers();
                     break;
                 case 2:
-                    staffMembers.addStaffMember();
+                    addStaffMember();
                     break;
                 case 3:
-                    staffMembers.removeStaffMember();
+                    removeStaffMember();
                     break;
                 case 4:
                     return;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
+        }
+    }
+
+    private void viewStaffMembers() {
+        System.out.println("\nCurrent Staff:");
+        if (restaurant.getStaff().isEmpty()) {
+            System.out.println("No staff members found.");
+        } else {
+            for (Staff staff : restaurant.getStaff()) {
+                System.out.println("Name | " + staff.getName() + ", Role | " + staff.getContactInformation() + ", ID | " + staff.getEmployeeID());
+            }
+        }
+    }
+
+    private void addStaffMember() {
+        System.out.print("Enter staff name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter staff role: ");
+        String role = scanner.nextLine();
+        System.out.print("Enter staff ID: ");
+        String employeeID = scanner.nextLine();
+
+        Staff newStaff = new Staff(name, role, employeeID);
+        restaurant.addStaff(newStaff);
+        System.out.println("Staff member added successfully.");
+    }
+
+    private void removeStaffMember() {
+        System.out.print("Enter staff ID to remove: ");
+        String employeeID = scanner.nextLine();
+
+        Staff toRemove = null;
+        for (Staff staff : restaurant.getStaff()) {
+            if (staff.getEmployeeID().equals(employeeID)) {
+                toRemove = staff;
+                break;
+            }
+        }
+
+        if (toRemove != null) {
+            restaurant.removeStaff(toRemove);
+            System.out.println("Staff member removed successfully.");
+        } else {
+            System.out.println("Staff member not found.");
         }
     }
 
