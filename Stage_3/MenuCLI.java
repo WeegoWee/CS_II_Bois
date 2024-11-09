@@ -4,13 +4,17 @@ public class MenuCLI {
     private Scanner scanner;
     private Restaurant restaurant;
     private OrderSystem orderSystem;
-
+    private Inventory inventory;
+    private Menu menu;
+    private Order order;
 
     public MenuCLI(Restaurant restaurant) {
         this.scanner = new Scanner(System.in);
         this.restaurant = restaurant;
         this.orderSystem = new OrderSystem(restaurant.getMenu());
-
+        this.inventory = inventory;
+        this.menu = menu;
+        this.order = order;
     }
 
     //Displays initial menu 
