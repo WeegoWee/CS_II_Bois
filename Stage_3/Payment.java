@@ -1,26 +1,51 @@
-public class Payment {
+import java.util.Scanner;
+
+public abstract class Payment {
     private float totalPrice;
-    private float discount;
 
     public Payment(float totalPrice) {
         this.totalPrice = totalPrice;
-        this.discount = 0;
     }
 
     public float getPaymentAmount() {
-        return totalPrice - discount;
+        return totalPrice;
     }
 
-    public void setPaymentAmount(float paymentAmount) {
-        this.totalPrice = paymentAmount;
-    }
+    public abstract void paymentDetails();
 
-    public float addDiscount(float disc) {
-        this.discount += disc;
-        return discount;
-    }
+    public static void choosePaymentMethod(double totalAmount, String tableID, Scanner scanner) {
+        System.out.println("Choose payment method:");
+        System.out.println("1. Cash");
+        System.out.println("2. Credit Card");
+        int paymentChoice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
 
-    public void paymentDetails() {
-        System.out.println("Total Price: " + totalPrice + ", Discount: " + discount);
+        switch (paymentChoice) {
+            case 1 -> {
+                System.out.print("Enter amount received: ");
+                double cashReceived = scanner.nextDouble();
+                scanner.nextLine(); // Consume newline
+                if (cashReceived >= totalAmount) {
+                    CashPayment cashPayment = new CashPayment((float) totalAmount, tableID);
+                    cashPayment.paymentDetails();
+                    double change = cashReceived - totalAmount;
+                    System.out.printf("Payment successful. Change: $%.2f\n", change);
+                } else {
+                    System.out.println("Insufficient payment. Please try again.");
+                }
+            }
+
+            case 2 -> {
+                System.out.print("Enter Card Number: ");
+                String cardNumber = scanner.nextLine();
+                System.out.print("Enter Expiration Date (MM/YY): ");
+                String expirationDate = scanner.nextLine();
+                CreditCardPayment cardPayment = new CreditCardPayment((float) totalAmount, cardNumber, expirationDate);
+                cardPayment.paymentDetails();
+                System.out.println("Payment successful.");
+            }
+
+            default -> System.out.println("Invalid payment method. Please try again.");
+        }
     }
 }

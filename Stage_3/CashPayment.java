@@ -10,9 +10,9 @@ public class CashPayment extends Payment {
         return tableID;
     }
 
+    @Override
     public void paymentDetails() {
         System.out.println("Table ID: " + tableID);
         System.out.println("Payment Amount: " + getPaymentAmount());
     }
 }
-

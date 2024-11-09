@@ -127,55 +127,22 @@ public class OrderSystem {
 
     // Method to make payment
     public void makePayment() {
-        System.out.print("Enter table ID for payment: ");
-        String tableID = scanner.nextLine();
+    System.out.print("Enter table ID for payment: ");
+    String tableID = scanner.nextLine();
 
-        double totalAmount = calculateTotal(tableID);
-        if (totalAmount > 0) {
-            System.out.printf("Total amount due for table %s: $%.2f\n", tableID, totalAmount);
-
-            System.out.println("Choose payment method:");
-            System.out.println("1. Cash");
-            System.out.println("2. Credit Card");
-            int paymentChoice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
-
-            switch (paymentChoice) {
-                case 1:
-                    System.out.print("Enter amount received: ");
-                    double cashReceived = scanner.nextDouble();
-                    scanner.nextLine(); // Consume newline
-                    if (cashReceived >= totalAmount) {
-                        CashPayment cashPayment = new CashPayment((float) totalAmount, tableID);
-                        cashPayment.paymentDetails();
-                        double change = cashReceived - totalAmount;
-                        System.out.printf("Payment successful. Change: $%.2f\n", change);
-                        clearOrder(tableID);
-                    } else {
-                        System.out.println("Insufficient payment. Please try again.");
-                    }
-                    break;
-
-                case 2:
-                    System.out.print("Enter Card Number: ");
-                    String cardNumber = scanner.nextLine();
-                    System.out.print("Enter Expiration Date (MM/YY): ");
-                    String expirationDate = scanner.nextLine();
-                    CreditCardPayment cardPayment = new CreditCardPayment((float) totalAmount, cardNumber, expirationDate);
-                    cardPayment.paymentDetails();
-                    clearOrder(tableID);
-                    System.out.println("Payment successful.");
-                    break;
-
-                default:
-                    System.out.println("Invalid payment method. Please try again.");
-                    break;
-            }
-        } else {
-            System.out.println("No orders found for table " + tableID);
-        }
+    double totalAmount = calculateTotal(tableID);
+    if (totalAmount > 0) {
+        System.out.printf("Total amount due for table %s: $%.2f\n", tableID, totalAmount);
+        
+        // Call the static method in the Payment class to choose and process the payment
+        Payment.choosePaymentMethod(totalAmount, tableID, scanner);
+        
+        clearOrder(tableID);
+    } else {
+        System.out.println("No orders found for table " + tableID);
     }
-
+}
+    
     // Method to remove an order
     public void removeOrder() {
         System.out.print("Enter the table ID of the order to remove: ");
