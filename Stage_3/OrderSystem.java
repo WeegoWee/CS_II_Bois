@@ -52,35 +52,6 @@ public class OrderSystem {
         this.scanner = new Scanner(System.in);
     }
 
-//    // Display the order menu
-//    public void displayOrderMenu() {
-//        while (true) {
-//            System.out.println("*********************************");
-//            System.out.println("*********************************");
-//            System.out.println("\n*********** Order Menu **********");
-//            System.out.println("|\t1. Place an Order\t|");
-//            System.out.println("|\t2. View Orders\t\t|");
-//            System.out.println("|\t3. Make Payment\t\t|");
-//            System.out.println("|\t4. Remove an Order\t|");
-//            System.out.println("|\t5. Back to Main Menu\t|");
-//            System.out.println("Select an option: ");
-//            System.out.println("*********************************");
-//            System.out.println("*********************************");
-//
-//            int choice = scanner.nextInt();
-//            scanner.nextLine(); // Consume newline
-//
-//            switch (choice) {
-//                case 1:placeOrder();break;
-//                case 2:viewOrders();break;
-//                case 3:makePayment(); break;
-//                case 4:removeOrder();break;
-//                case 5:return;
-//                default:System.out.println("Invalid choice. Please try again.");
-//            }
-//        }
-//    }
-
     // Method to place an order
     public void placeOrder() {
         System.out.println("Available Menu Items:");

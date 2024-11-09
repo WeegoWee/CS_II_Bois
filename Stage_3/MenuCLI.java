@@ -4,15 +4,13 @@ public class MenuCLI {
     private Scanner scanner;
     private Restaurant restaurant;
     private OrderSystem orderSystem;
-    private Inventory inventory;
-    private Menu menu;
+
 
     public MenuCLI(Restaurant restaurant) {
         this.scanner = new Scanner(System.in);
         this.restaurant = restaurant;
         this.orderSystem = new OrderSystem(restaurant.getMenu());
-        this.inventory = inventory;
-        this.menu = menu;
+
     }
 
     //Displays initial menu 
@@ -88,59 +86,13 @@ public class MenuCLI {
             scanner.nextLine();
 
             switch (choice) {
-                case 1:menu.addMenuItem();break;
-                case 2:menu.removeMenuItem();break;
-                case 3:menu.showMenus();break;
+                case 1:restaurant.addMenuItem();break;
+                case 2:restaurant.removeMenuItem();break;
+                case 3:restaurant.showMenu();break;
                 case 4:return;
                 default:System.out.println("Invalid choice. Please try again.");
             }
         }
-    }
-
-//    /**
-//     * This method adds items to the inventory list
-//     */
-//    private void addMenuItem() {
-//        System.out.print("Enter item name: ");
-//        String itemName = scanner.nextLine();
-//        System.out.print("Enter food quantity: ");
-//        short totalItems = scanner.nextShort();
-//        System.out.print("Enter price for the item: ");
-//        float price = scanner.nextFloat();
-//        scanner.nextLine(); 
-//
-//        Inventory newItem = new Inventory(itemName, totalItems, price);
-//        restaurant.getMenu().addItems(newItem);
-//        System.out.println("Item added successfully.");
-//    }
-
-//    /**
-//     * this method removes items from the inventory list
-//     */
-//    private void removeMenuItem() {
-//        System.out.print("Enter item name to remove: ");
-//        String itemName = scanner.nextLine();
-//
-//        for (Inventory item : restaurant.getMenu().getItems()) {
-//            if (item.getItems().equals(itemName)) {
-//                restaurant.getMenu().removeItems(item);
-//                System.out.println("Item removed successfully.");
-//                return;
-//            }
-//        }
-//        System.out.println("Item not found.");
-//    }
-//
-//    private void showMenu() {
-//        System.out.println("Current Menu:");
-//        restaurant.getMenu().showMenu();
-//    }
-
-    public static void main(String[] args) {
-        Menu menu = new Menu();
-        Restaurant restaurant = new Restaurant("Corner Cafe", "P. Sherman 42 Wallaby Way", menu);
-        MenuCLI cli = new MenuCLI(restaurant);
-        cli.displayMainMenu();
     }
     
     // Display the order menu
@@ -170,6 +122,13 @@ public class MenuCLI {
                 default:System.out.println("Invalid choice. Please try again.");
             }
         }
+    }
+    
+    public static void main(String[] args) {
+        Menu menu = new Menu();
+        Restaurant restaurant = new Restaurant("Corner Cafe", "P. Sherman 42 Wallaby Way", menu);
+        MenuCLI cli = new MenuCLI(restaurant);
+        cli.displayMainMenu();
     }
     
 }
