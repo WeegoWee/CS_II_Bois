@@ -1,25 +1,25 @@
 public class Individual {
     private String name;
-    private String contactInformation;
+    private String role;
 
-    public Individual(String name, String contactInformation) {
+    public Individual(String name, String role) {
         this.name = name;
-        this.contactInformation = contactInformation;
+        this.role = role;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getContactInformation() {
-        return contactInformation;
+    public String getRole() {
+        return role;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setContactInformation(String contactInformation) {
-        this.contactInformation = contactInformation;
+    public void setRole(String role) {
+        this.role = role;
     }
 }

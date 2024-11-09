@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class OrderSystem {
     private static int orderCounter = 0; // Static counter for unique order numbers
@@ -14,13 +16,16 @@ public class OrderSystem {
         private final int orderNumber;
         private final String itemName;
         private final int quantity;
-        private final LocalDateTime orderTime;
+        private final LocalTime orderTime;
+        private final LocalDate orderDate;
 
         public Order(String itemName, int quantity) {
             this.orderNumber = ++orderCounter; // Generate a unique order number
             this.itemName = itemName;
             this.quantity = quantity;
-            this.orderTime = LocalDateTime.now(); // Record when the order was placed
+            this.orderTime = LocalTime.now(); // Record time the order was placed
+            this.orderDate = LocalDate.now(); // Record date the order was placed
+            
         }
 
         public int getOrderNumber() {
@@ -34,14 +39,20 @@ public class OrderSystem {
         public int getQuantity() {
             return quantity;
         }
-
-        public LocalDateTime getOrderTime() {
-            return orderTime;
+        
+        public String dateFormat(){
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+ 
+            return orderDate.format(dateFormatter);
+        }
+        public String timeFormat(){
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm a");
+            return orderTime.format(timeFormatter);
         }
 
         @Override
         public String toString() {
-            return "Order #" + orderNumber + ": " + quantity + " x " + itemName + " (Ordered at: " + orderTime + ")";
+            return "Order #" + orderNumber + ": " + quantity + " x " + itemName + " (Ordered at: " + timeFormat() + " on " + dateFormat() + ")";
         }
     }
 
@@ -169,7 +180,18 @@ public class OrderSystem {
     public void removeOrder() {
         System.out.print("Enter the table ID of the order to remove: ");
         String tableID = scanner.nextLine();
-        System.out.print("Enter the order number to remove. Make sure to use single digits: ");
+        
+        ArrayList<Order> tableListOrders = orders.get(tableID);
+        if (tableListOrders == null || tableListOrders.isEmpty()) {
+            System.out.println("No orders found for table " + tableID + ".");
+        } else {
+            System.out.println("Current Orders for table " + tableID + ":");
+            for (Order order : tableListOrders) {
+                System.out.println(order);
+            }
+        }
+       
+        System.out.print("Enter the order number to remove: ");
         int orderNumber = scanner.nextInt();
         scanner.nextLine(); // Consume newline
 

@@ -75,7 +75,7 @@ public class Restaurant {
             System.out.println("No staff members found.");
         } else {
             for (Staff staff : getStaff()) {
-                System.out.println("Name | " + staff.getName() + ", Role | " + staff.getContactInformation() + ", ID | " + staff.getEmployeeID());
+                System.out.println("Name | " + staff.getName() + ", Role | " + staff.getRole() + ", ID | " + staff.getEmployeeID());
             }
         }
     }

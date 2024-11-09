@@ -6,8 +6,8 @@ public class Staff extends Individual {
     private String employeeID;
     private Restaurant restaurant;
 
-    public Staff(String name, String contactInformation, String employeeID) {
-        super(name, contactInformation);
+    public Staff(String name, String role, String employeeID) {
+        super(name, role);
         this.employeeID = employeeID;
         this.restaurant = restaurant;
     }
@@ -28,7 +28,7 @@ public class Staff extends Individual {
             System.out.println("No staff members found.");
         } else {
             for (Staff staff : restaurant.getStaff()) {
-                System.out.println("Name | " + staff.getName() + ", Role | " + staff.getContactInformation() + ", ID | " + staff.getEmployeeID());
+                System.out.println("Name | " + staff.getName() + ", Role | " + staff.getRole() + ", ID | " + staff.getEmployeeID());
             }
         }
     }
