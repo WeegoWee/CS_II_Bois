@@ -1,5 +1,4 @@
 public class CreditCardPayment extends Payment {
-    private String tableID;
     private String cardNumber;
     private String expirationDate;
 

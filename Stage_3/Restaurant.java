@@ -1,56 +1,37 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Restaurant {
-    private String restaurantName;
-    private String location;
+    private String name;
+    private String address;
     private Menu menu;
-    public ArrayList<Staff> staff;
+    private List<Staff> staffList;
 
-    public Restaurant(String restaurantName, String location, Menu menu) {
-        this.restaurantName = restaurantName;
-        this.location = location;
+    public Restaurant(String name, String address, Menu menu) {
+        this.name = name;
+        this.address = address;
         this.menu = menu;
-        this.staff = new ArrayList<>();
+        this.staffList = new ArrayList<>();
     }
 
-    public String getRestaurantName() {
-        return restaurantName;
-    }
-
-    public String getLocation() {
-        return location;
+    public void showInfo() {
+        System.out.println("Restaurant Name: " + name);
+        System.out.println("Address: " + address);
     }
 
     public Menu getMenu() {
         return menu;
     }
 
-    public void setRestaurantName(String restaurantName) {
-        this.restaurantName = restaurantName;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public void setMenu(Menu menu) {
-        this.menu = menu;
+    public List<Staff> getStaff() {
+        return staffList;
     }
 
     public void addStaff(Staff staff) {
-        this.staff.add(staff);
+        staffList.add(staff);
     }
 
     public void removeStaff(Staff staff) {
-        this.staff.remove(staff);
+        staffList.remove(staff);
     }
-
-    public void showInfo() {
-        System.out.println("Restaurant: " + restaurantName + ", Location: " + location);
-    }
-    
-    public ArrayList<Staff> getStaff() {
-        return staff;
-    }
-
 }

@@ -16,7 +16,7 @@ public class Customer extends Individual {
     }
 
     public void earnRewardPoints() {
-        rewardPoints += 10; // Example increment
+        rewardPoints += 10;
     }
 
     public String addOrder(String order) {

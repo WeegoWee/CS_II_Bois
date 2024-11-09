@@ -15,3 +15,4 @@ public class CashPayment extends Payment {
         System.out.println("Payment Amount: " + getPaymentAmount());
     }
 }
+

@@ -1,10 +1,10 @@
 public class Cook {
-    private Order order;
+    private OrderSystem order;
     private String name;
     private Staff employeeID;
     private Individual contactInfo;
 
-    public Cook(Order order) {
+    public Cook(OrderSystem order) {
         this.order = order;
     }
 
@@ -36,3 +36,4 @@ public class Cook {
         System.out.println("Cook: " + name + ", Employee ID: " + employeeID.getEmployeeID());
     }
 }
+

@@ -3,20 +3,29 @@ import java.util.Scanner;
 public class MenuCLI {
     private Scanner scanner;
     private Restaurant restaurant;
+    private OrderSystem orderSystem;
+    private Staff staffMembers;
 
     public MenuCLI(Restaurant restaurant) {
         this.scanner = new Scanner(System.in);
         this.restaurant = restaurant;
+        this.staffMembers = staffMembers;
+        this.orderSystem = new OrderSystem(restaurant.getMenu());
     }
 
     public void displayMainMenu() {
         while (true) {
-            System.out.println("\n=== Restaurant Management System ===");
-            System.out.println("1. View Restaurant Info");
-            System.out.println("2. Manage Staff");
-            System.out.println("3. Manage Menu");
-            System.out.println("4. Exit");
-            System.out.print("Select an option: ");
+            System.out.println("*********************************");
+            System.out.println("*********************************");
+            System.out.println("\n****** Corner Cafe System *******");
+            System.out.println("|\t1. View Restaurant Info\t|");
+            System.out.println("|\t2. Staff\t\t|");
+            System.out.println("|\t3. Inventory\t\t|");
+            System.out.println("|\t4. Order\t\t|");
+            System.out.println("|\t5. Exit\t\t\t|");
+            System.out.println("Select an option: ");
+            System.out.println("*********************************");
+            System.out.println("*********************************");
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -32,6 +41,9 @@ public class MenuCLI {
                     manageMenu();
                     break;
                 case 4:
+                    orderSystem.displayOrderMenu();
+                    break;
+                case 5:
                     System.out.println("Exiting the application...");
                     return;
                 default:
@@ -39,28 +51,32 @@ public class MenuCLI {
             }
         }
     }
-
+    
     private void manageStaffMenu() {
         while (true) {
-            System.out.println("\n=== Manage Staff ===");
-            System.out.println("1. Add Staff");
-            System.out.println("2. Remove Staff");
-            System.out.println("3. Show Staff");
-            System.out.println("4. Back to Main Menu");
-            System.out.print("Select an option: ");
+            System.out.println("*********************************");
+            System.out.println("*********************************");
+            System.out.println("\n|********** Manage Staff *******|");
+            System.out.println("|\t1. View Staff\t\t|");
+            System.out.println("|\t2. Add Staff\t\t|");
+            System.out.println("|\t3. Remove Staff\t\t|");
+            System.out.println("|\t4. Back to Main Menu\t|");
+            System.out.println("|\tSelect an option: \t|");
+            System.out.println("*********************************");
+            System.out.println("*********************************");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
-                    addStaff();
+                    staffMembers.viewStaffMembers();
                     break;
                 case 2:
-                    removeStaff();
+                    staffMembers.addStaffMember();
                     break;
                 case 3:
-                    showStaff();
+                    staffMembers.removeStaffMember();
                     break;
                 case 4:
                     return;
@@ -70,52 +86,20 @@ public class MenuCLI {
         }
     }
 
-    private void addStaff() {
-        System.out.print("Enter staff name: ");
-        String name = scanner.nextLine();
-        System.out.print("Enter contact information: ");
-        String contactInformation = scanner.nextLine();
-        System.out.print("Enter employee ID: ");
-        String employeeID = scanner.nextLine();
-
-        Staff newStaff = new Staff(name, contactInformation, employeeID);
-        restaurant.addStaff(newStaff);
-        System.out.println("Staff added successfully.");
-    }
-
-    private void removeStaff() {
-        System.out.print("Enter employee ID to remove: ");
-        String employeeID = scanner.nextLine();
-
-        // This assumes the Staff class has a method to check ID; you might need to implement this logic.
-        for (Staff staff : restaurant.getStaff()) {
-            if (staff.getEmployeeID().equals(employeeID)) {
-                restaurant.removeStaff(staff);
-                System.out.println("Staff removed successfully.");
-                return;
-            }
-        }
-        System.out.println("Staff not found.");
-    }
-
-    private void showStaff() {
-        System.out.println("Current Staff:");
-        for (Staff staff : restaurant.getStaff()) {
-            staff.showInfo();
-        }
-    }
-
     private void manageMenu() {
         while (true) {
-            System.out.println("\n=== Manage Menu ===");
-            System.out.println("1. Add Menu Item");
-            System.out.println("2. Remove Menu Item");
-            System.out.println("3. Show Menu");
-            System.out.println("4. Back to Main Menu");
-            System.out.print("Select an option: ");
+            System.out.println("*********************************");
+            System.out.println("\n*********Iventory****************");
+            System.out.println("|\t1. Add Item\t\t|");
+            System.out.println("|\t2. Remove Item\t\t|");
+            System.out.println("|\t3. Show Inventory\t|");
+            System.out.println("|\t4. Back to Main Menu\t|");
+            System.out.println("Select an option: ");
+            System.out.println("*********************************");
+            System.out.println("*********************************");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -136,30 +120,31 @@ public class MenuCLI {
     }
 
     private void addMenuItem() {
-        System.out.print("Enter food item name: ");
-        String item = scanner.nextLine();
-        System.out.print("Enter total food quantity: ");
+        System.out.print("Enter item name: ");
+        String itemName = scanner.nextLine();
+        System.out.print("Enter food quantity: ");
         short totalItems = scanner.nextShort();
-        scanner.nextLine(); // Consume newline
+        System.out.print("Enter price for the item: ");
+        float price = scanner.nextFloat();
+        scanner.nextLine(); 
 
-        Inventory newItem = new Inventory(items, totalItems);
+        Inventory newItem = new Inventory(itemName, totalItems, price);
         restaurant.getMenu().addItems(newItem);
-        System.out.println("Menu item added successfully.");
+        System.out.println("Item added successfully.");
     }
 
     private void removeMenuItem() {
-        System.out.print("Enter food item name to remove: ");
-        String food = scanner.nextLine();
+        System.out.print("Enter item name to remove: ");
+        String itemName = scanner.nextLine();
 
-        // This assumes the Inventory class has a method to check food name; you might need to implement this logic.
         for (Inventory item : restaurant.getMenu().getItems()) {
-            if (item.getItems().equals(items)) {
+            if (item.getItems().equals(itemName)) {
                 restaurant.getMenu().removeItems(item);
-                System.out.println("Menu item removed successfully.");
+                System.out.println("Item removed successfully.");
                 return;
             }
         }
-        System.out.println("Menu item not found.");
+        System.out.println("Item not found.");
     }
 
     private void showMenu() {
@@ -168,9 +153,8 @@ public class MenuCLI {
     }
 
     public static void main(String[] args) {
-        // Sample initialization
         Menu menu = new Menu();
-        Restaurant restaurant = new Restaurant("Gourmet Heaven", "123 Flavor St", menu);
+        Restaurant restaurant = new Restaurant("Corner Cafe", "P. Sherman 42 Wallaby Way", menu);
         MenuCLI cli = new MenuCLI(restaurant);
         cli.displayMainMenu();
     }

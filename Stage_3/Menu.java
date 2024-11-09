@@ -4,7 +4,7 @@ public class Menu {
     private ArrayList<Inventory> items;
 
     public Menu() {
-        items = new ArrayList<>();
+        this.items = new ArrayList<>();
     }
 
     public void addItems(Inventory item) {
@@ -15,14 +15,23 @@ public class Menu {
         items.remove(item);
     }
 
+    public ArrayList<Inventory> getItems() {
+        return items;
+    }
+
     public void showMenu() {
         for (Inventory item : items) {
-            System.out.println("Item: " + item.getItems() + " | Quantity: " + item.getTotalItems() + " | Price: " + item.getPrice());
+            System.out.println(item.getItems() + " - $" + item.getPrice() + " (Available | " + item.getTotalItems() + ")");
         }
     }
 
-    public void showInfo() {
-        System.out.println("Menu Items:");
-        showMenu();
+    // Method to find an item by name
+    public Inventory findItemByName(String name) {
+        for (Inventory item : items) {
+            if (item.getItems().equalsIgnoreCase(name)) { 
+                return item;
+            }
+        }
+        return null; 
     }
 }

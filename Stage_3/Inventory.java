@@ -3,7 +3,7 @@ public class Inventory {
     private float price;
     private short totalItems;
 
-    public Inventory(String items,short totalItems,float price) {
+    public Inventory(String items, short totalItems, float price) {
         this.items = items;
         this.totalItems = totalItems;
         this.price = price;
@@ -32,5 +32,4 @@ public class Inventory {
     public void setTotalItems(short totalItems) {
         this.totalItems = totalItems;
     }
-                  
 }
