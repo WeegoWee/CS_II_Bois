@@ -1,6 +1,6 @@
 
 import java.util.Scanner;
-
+//This is the staff class that extend the Individual class
 public class Staff extends Individual {
     static Scanner scanner = new Scanner(System.in);
     private String employeeID;
