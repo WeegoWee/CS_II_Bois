@@ -1,4 +1,4 @@
-
+//The corner cafe class holds the dummy information that will be used for the program.
 public class CornerCafe {
 
     public static void main(String[] args) {
