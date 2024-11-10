@@ -1,2 +1,1 @@
-Worked on all the classes for the system like OrderSystem, MenuCLI and Payment.
-Created a new updated UML diagram
+We all worked on the classes for the system and troubleshooted together during team meetings. We made team decisions in what the code should be looking like and made changes that we all agreed upon when adding or removing to fit the goal of the system.
