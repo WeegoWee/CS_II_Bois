@@ -37,18 +37,22 @@ public class OrderSystem {
             
         }
 
+        //this method gets the order number and returns the ordernumber
         public int getOrderNumber() {
             return orderNumber;
         }
 
+        //this method gets the item name and returns the item name
         public String getItemName() {
             return itemName;
         }
 
+        //this gets the quantity and returns the quantity
         public int getQuantity() {
             return quantity;
         }
-        
+
+        //this method sets the date and time of each order.
         public String dateFormat(){
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
  
