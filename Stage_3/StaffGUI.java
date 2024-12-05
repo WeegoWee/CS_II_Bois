@@ -8,7 +8,6 @@
  * @author estra
  */
 public class StaffGUI extends javax.swing.JFrame {
-
     /**
      * Creates new form StaffGUI
      */

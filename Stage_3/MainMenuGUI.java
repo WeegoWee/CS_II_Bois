@@ -13,6 +13,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
      * Creates new form MainMenuGUI
      */
     public MainMenuGUI() {
+        
         initComponents();
     }
 
@@ -25,73 +26,71 @@ public class MainMenuGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblCornerCafe = new javax.swing.JLabel();
-        panel1 = new javax.swing.JPanel();
-        restInfoButton = new javax.swing.JButton();
-        StaffButton = new javax.swing.JButton();
-        InventButton = new javax.swing.JButton();
-        orderButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        restInfoButton1 = new javax.swing.JButton();
+        staffButton3 = new javax.swing.JButton();
+        orderMenuButton2 = new javax.swing.JButton();
+        inventoryButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblCornerCafe.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
-        lblCornerCafe.setText("Corner Cafe");
-
-        restInfoButton.setText("Restaurant Info");
-        restInfoButton.addActionListener(new java.awt.event.ActionListener() {
+        restInfoButton1.setText("Restaurant Info");
+        restInfoButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                restInfoButtonActionPerformed(evt);
+                restInfoButton1ActionPerformed(evt);
             }
         });
 
-        StaffButton.setText("Staff");
-        StaffButton.addActionListener(new java.awt.event.ActionListener() {
+        staffButton3.setText("Staff Info");
+        staffButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StaffButtonActionPerformed(evt);
+                staffButton3ActionPerformed(evt);
             }
         });
 
-        InventButton.setText("Inventory");
-        InventButton.addActionListener(new java.awt.event.ActionListener() {
+        orderMenuButton2.setText("Order Menu");
+        orderMenuButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InventButtonActionPerformed(evt);
+                orderMenuButton2ActionPerformed(evt);
             }
         });
 
-        orderButton.setText("Order Now");
-        orderButton.addActionListener(new java.awt.event.ActionListener() {
+        inventoryButton4.setText("Inventory");
+        inventoryButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                orderButtonActionPerformed(evt);
+                inventoryButton4ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
-        panel1.setLayout(panel1Layout);
-        panel1Layout.setHorizontalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(restInfoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(orderButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(StaffButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InventButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(78, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(staffButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(inventoryButton4))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(restInfoButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                        .addComponent(orderMenuButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(51, 51, 51))
         );
-        panel1Layout.setVerticalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(restInfoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(StaffButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InventButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(orderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(214, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(orderMenuButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(restInfoButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inventoryButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(staffButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,47 +98,41 @@ public class MainMenuGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(lblCornerCafe, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(lblCornerCafe, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(420, 351));
+        setSize(new java.awt.Dimension(431, 342));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void restInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restInfoButtonActionPerformed
-        RestaurantGUI restaurant = new RestaurantGUI();
-        restaurant.setVisible(true);
-    }//GEN-LAST:event_restInfoButtonActionPerformed
+    private void restInfoButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restInfoButton1ActionPerformed
+        RestaurantInfoGUI rest = new RestaurantInfoGUI();
+        rest.setVisible(true);
+    }//GEN-LAST:event_restInfoButton1ActionPerformed
 
-    private void StaffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StaffButtonActionPerformed
+    private void orderMenuButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderMenuButton2ActionPerformed
+        OrderMenuGUI order = new OrderMenuGUI();
+        order.setVisible(true);
+    }//GEN-LAST:event_orderMenuButton2ActionPerformed
+
+    private void staffButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_staffButton3ActionPerformed
         StaffGUI staff = new StaffGUI();
         staff.setVisible(true);
-    }//GEN-LAST:event_StaffButtonActionPerformed
+    }//GEN-LAST:event_staffButton3ActionPerformed
 
-    private void orderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderButtonActionPerformed
-        OrderSystemGUI order = new OrderSystemGUI();
-        order.setVisible(true);
-    }//GEN-LAST:event_orderButtonActionPerformed
-
-    private void InventButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventButtonActionPerformed
-        InventoryGUI inventory = new InventoryGUI();
-        inventory.setVisible(true);
-    }//GEN-LAST:event_InventButtonActionPerformed
+    private void inventoryButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButton4ActionPerformed
+        InventoryGUI invent = new InventoryGUI();
+        invent.setVisible(true);
+    }//GEN-LAST:event_inventoryButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,11 +170,10 @@ public class MainMenuGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton InventButton;
-    private javax.swing.JButton StaffButton;
-    private javax.swing.JLabel lblCornerCafe;
-    private javax.swing.JButton orderButton;
-    private javax.swing.JPanel panel1;
-    private javax.swing.JButton restInfoButton;
+    private javax.swing.JButton inventoryButton4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton orderMenuButton2;
+    private javax.swing.JButton restInfoButton1;
+    private javax.swing.JButton staffButton3;
     // End of variables declaration//GEN-END:variables
 }
