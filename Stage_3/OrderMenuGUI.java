@@ -10,23 +10,25 @@
 public class OrderMenuGUI extends javax.swing.JFrame {
     private Inventory inventory;
     private OrderSystem order;
+    private Menu menu;
     /**
      * Creates new form OrderMenuGUI
      */
     public OrderMenuGUI() {
         inventory = new Inventory();
         order = new OrderSystem();
+        menu = new Menu();
         initComponents();
         setPrices();
     }
     
     private void setPrices()
     {
-        txtAvoToast.setText(inventory.getPrice(item));
-        txtBLT.setText("6.49");
-        txtChai.setText("11.99");
-        txtPanini.setText("8.99");
-        txtTiramisu.setText("5.99");
+        txtAvoToast.setText(Float.toString(inventory.getPrice()));
+//        txtBLT.setText(String.format("%.2f", menu.getItems(1).getPrice()));
+//        txtChai.setText(String.format("%.2f", menu.getItems(2).getPrice()));
+//        txtPanini.setText(String.format("%.2f", menu.getItems(3).getPrice()));
+//        txtTiramisu.setText(String.format("%.2f", menu.getItems(4).getPrice()));
     }
     /**
      * This method is called from within the constructor to initialize the form.

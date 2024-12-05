@@ -1,13 +1,20 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 //this is the menu class
 public class Menu {
-    
     private ArrayList<Inventory> items;
+    private HashMap<String, Double> price;
     
 
     //the constructor initializes the array list
     public Menu() {
+        this.price = new HashMap<>();
         this.items = new ArrayList<>();
+        
+    }
+    
+    public void addPrices()
+    {
         
     }
 
@@ -22,7 +29,7 @@ public class Menu {
     }
 
     //this method gets the items from the array list
-    public ArrayList<Inventory> getItems() {
+    public ArrayList<Inventory> getItems(String item) {
         return items;
     }
 

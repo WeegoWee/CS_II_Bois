@@ -18,6 +18,9 @@ public class OrderSystem {
     private int totalOrders = 0;
     private int totalItemsSold = 0;
 
+    public OrderSystem() {
+    }
+
 
 
     // Nested Order class to represent individual orders

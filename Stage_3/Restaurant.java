@@ -25,6 +25,9 @@ public class Restaurant {
         this.staffList = new ArrayList<>();
     }
 
+    public Restaurant() {
+    }
+
     /**
      * this method shows the restaurant information when the option is chosen
      * from the initial menu

@@ -3,12 +3,18 @@ public class Inventory {
     private String items;
     private float price;
     private short totalItems;
+    private Menu menu;
 
     //thhe inventory constructor initializes the instance variables.
     public Inventory(String items, short totalItems, float price) {
         this.items = items;
         this.totalItems = totalItems;
         this.price = price;
+        
+    }
+
+    Inventory() {
+        
     }
 
     //this method gets the items and returns the items.
@@ -22,7 +28,7 @@ public class Inventory {
     }
 
     //this method gets the price and returns the price
-    public float getPrice() {
+    public float getPrice() { 
         return price;
     }
 
@@ -39,5 +45,9 @@ public class Inventory {
     //this sets the total items to a total items variable.
     public void setTotalItems(short totalItems) {
         this.totalItems = totalItems;
+    }
+    public float getPrices(String i)
+    {
+        return price;
     }
 }
