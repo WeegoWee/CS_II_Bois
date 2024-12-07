@@ -1,53 +1,45 @@
-//this is the Inventory class
 public class Inventory {
     private String items;
     private float price;
     private short totalItems;
-    private Menu menu;
 
-    //thhe inventory constructor initializes the instance variables.
+    // Constructor initializes the item properties
     public Inventory(String items, short totalItems, float price) {
         this.items = items;
         this.totalItems = totalItems;
         this.price = price;
-        
     }
 
     Inventory() {
-        
     }
 
-    //this method gets the items and returns the items.
+    // Getter for item name
     public String getItems() {
         return items;
     }
 
-    //this method sets the items to a items variable
+    // Setter for item name
     public void setItems(String items) {
         this.items = items;
     }
 
-    //this method gets the price and returns the price
-    public float getPrice() { 
+    // Getter for price
+    public float getPrice() {
         return price;
     }
 
-    //this sets the price to a price variable.
+    // Setter for price
     public void setPrice(float price) {
         this.price = price;
     }
 
-    //this method gets the tital items and returns the total items
+    // Getter for total items
     public short getTotalItems() {
         return totalItems;
     }
 
-    //this sets the total items to a total items variable.
+    // Setter for total items
     public void setTotalItems(short totalItems) {
         this.totalItems = totalItems;
-    }
-    public float getPrices(String i)
-    {
-        return price;
     }
 }

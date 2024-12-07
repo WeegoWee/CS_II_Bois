@@ -1,4 +1,3 @@
-//The corner cafe class holds the dummy information that will be used for the program.
 public class CornerCafe {
 
     public static void main(String[] args) {
@@ -17,14 +16,17 @@ public class CornerCafe {
         
         // Add dummy staff
         restaurant.addStaff(new Staff("Alice", "Manager", "001"));
-        restaurant.addStaff(new Staff("Bob", "Chef ", "002"));
-        restaurant.addStaff(new Staff("Charlie", "Waiter ", "003"));
-        restaurant.addStaff(new Staff("Dana", "Waitress ", "004"));
+        restaurant.addStaff(new Staff("Bob", "Chef", "002"));
+        restaurant.addStaff(new Staff("Charlie", "Waiter", "003"));
+        restaurant.addStaff(new Staff("Dana", "Waitress", "004"));
 
         // Create CLI instance
         MenuCLI cli = new MenuCLI(restaurant);
         
         // Start the CLI
         cli.displayMainMenu();
+        
+        // Display the menu with prices in the CLI (Example)
+        menu.showMenu();
     }
 }

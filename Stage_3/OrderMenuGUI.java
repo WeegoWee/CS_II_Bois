@@ -18,17 +18,44 @@ public class OrderMenuGUI extends javax.swing.JFrame {
         inventory = new Inventory();
         order = new OrderSystem();
         menu = new Menu();
+        
+        menu.addItems(new Inventory("Avocado Toast", (short) 20, 10.99f));
+        menu.addItems(new Inventory("BLT Sandwich", (short) 30, 6.49f));
+        menu.addItems(new Inventory("Panini", (short) 50, 8.99f));
+        menu.addItems(new Inventory("Chai Latte", (short) 25, 4.99f));
+        menu.addItems(new Inventory("Tiramisu", (short) 15, 5.99f));
         initComponents();
         setPrices();
     }
     
     private void setPrices()
     {
-        txtAvoToast.setText(Float.toString(inventory.getPrice()));
-//        txtBLT.setText(String.format("%.2f", menu.getItems(1).getPrice()));
-//        txtChai.setText(String.format("%.2f", menu.getItems(2).getPrice()));
-//        txtPanini.setText(String.format("%.2f", menu.getItems(3).getPrice()));
-//        txtTiramisu.setText(String.format("%.2f", menu.getItems(4).getPrice()));
+        
+        Inventory avoToast = menu.findItemByName("Avocado Toast");
+    if (avoToast != null) {
+        txtAvoToast.setText(String.format("%.2f", avoToast.getPrice()));
+    }
+
+    // Similarly, set prices for other items
+    Inventory blt = menu.findItemByName("BLT Sandwich");
+    if (blt != null) {
+        txtBLT.setText(String.format("%.2f", blt.getPrice()));
+    }
+
+    Inventory panini = menu.findItemByName("Panini");
+    if (panini != null) {
+        txtPanini.setText(String.format("%.2f", panini.getPrice()));
+    }
+
+    Inventory chai = menu.findItemByName("Chai Latte");
+    if (chai != null) {
+        txtChai.setText(String.format("%.2f", chai.getPrice()));
+    }
+
+    Inventory tiramisu = menu.findItemByName("Tiramisu");
+    if (tiramisu != null) {
+        txtTiramisu.setText(String.format("%.2f", tiramisu.getPrice()));
+    }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,7 +80,7 @@ public class OrderMenuGUI extends javax.swing.JFrame {
         txtChai = new javax.swing.JTextField();
         txtTiramisu = new javax.swing.JTextField();
         txtPanini = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        lblPanini = new javax.swing.JLabel();
         lblChai = new javax.swing.JLabel();
         panelSell = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -77,7 +104,7 @@ public class OrderMenuGUI extends javax.swing.JFrame {
 
         spnBLT.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
-        jLabel2.setText("Panini");
+        lblPanini.setText("Panini");
 
         lblChai.setText("Chai Latte");
 
@@ -90,7 +117,7 @@ public class OrderMenuGUI extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
+                            .addComponent(lblPanini)
                             .addComponent(lblChai)
                             .addGroup(mainPanelLayout.createSequentialGroup()
                                 .addComponent(lblAvoToast)
@@ -137,7 +164,7 @@ public class OrderMenuGUI extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                         .addComponent(lblChai)
                         .addGap(24, 24, 24)
-                        .addComponent(jLabel2)
+                        .addComponent(lblPanini)
                         .addGap(18, 18, 18)
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblAvoToast)
@@ -220,7 +247,7 @@ public class OrderMenuGUI extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -247,10 +274,10 @@ public class OrderMenuGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblAvoToast;
     private javax.swing.JLabel lblBLT;
     private javax.swing.JLabel lblChai;
+    private javax.swing.JLabel lblPanini;
     private javax.swing.JLabel lblTiramisu;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel panelSell;

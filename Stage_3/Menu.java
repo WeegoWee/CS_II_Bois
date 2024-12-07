@@ -1,53 +1,42 @@
 import java.util.ArrayList;
-import java.util.HashMap;
-//this is the menu class
+
 public class Menu {
     private ArrayList<Inventory> items;
-    private HashMap<String, Double> price;
-    
 
-    //the constructor initializes the array list
+    // Constructor initializes the items ArrayList
     public Menu() {
-        this.price = new HashMap<>();
         this.items = new ArrayList<>();
-        
-    }
-    
-    public void addPrices()
-    {
-        
     }
 
-    //this methd adds new items to the list
+    // Adds a new item to the menu
     public void addItems(Inventory item) {
         items.add(item);
     }
 
-    //this method removes items from the list
+    // Removes an item from the menu
     public void removeItems(Inventory item) {
         items.remove(item);
     }
 
-    //this method gets the items from the array list
-    public ArrayList<Inventory> getItems(String item) {
+    // Gets the list of all items in the menu
+    public ArrayList<Inventory> getItems() {
         return items;
     }
 
-    //this method prints the menu
+    // Displays the menu with items, their prices, and availability
     public void showMenu() {
         for (Inventory item : items) {
-            System.out.println(item.getItems() + " - $" + item.getPrice() + " (Available | " + item.getTotalItems() + ")");
+            System.out.println(item.getItems() + " - $" + item.getPrice() + " (Available: " + item.getTotalItems() + ")");
         }
     }
 
-    // Method to find an item by name
+    // Finds an item by its name and returns the Inventory object
     public Inventory findItemByName(String name) {
         for (Inventory item : items) {
-            if (item.getItems().equalsIgnoreCase(name)) { 
+            if (item.getItems().equalsIgnoreCase(name)) {
                 return item;
             }
         }
-        return null; 
+        return null; // Return null if no item found
     }
-    
 }
