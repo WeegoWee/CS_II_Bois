@@ -2,12 +2,14 @@ public class Inventory {
     private String items;
     private float price;
     private short totalItems;
+    private Menu menu;
 
     // Constructor initializes the item properties
     public Inventory(String items, short totalItems, float price) {
         this.items = items;
         this.totalItems = totalItems;
         this.price = price;
+        this.menu = new Menu();
     }
 
     Inventory() {

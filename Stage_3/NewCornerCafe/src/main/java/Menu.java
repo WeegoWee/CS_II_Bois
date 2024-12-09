@@ -1,48 +1,84 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Menu {
-    private Map<String, Inventory> items;
+    private Map<String, Item> items; // Maps item names to their details
 
-    // Constructor initializes the items HashMap
     public Menu() {
         this.items = new HashMap<>();
     }
 
-    // Adds a new item to the menu
-    public void addItems(Inventory item) {
-        items.put(item.getItems(), item);  // Using item name as the key
-    }
-
-    // Removes an item from the menu
-    public void removeItems(Inventory item) {
-        items.remove(item.getItems());  // Remove based on item name
-    }
-
-    // Gets the list of all items in the menu
-    public Map<String, Inventory> getItems() {
-        return items;
-    }
-
-    // Displays the menu with items, their prices, and availability
-    public void showMenu() {
-        for (Inventory item : items.values()) {
-            System.out.println(item.getItems() + " - $" + item.getPrice() + " (Available: " + item.getTotalItems() + ")");
+    public void addItem(String itemName, float price, short totalItems) {
+        if (items.containsKey(itemName)) {
+            System.out.println("Item already exists. Updating stock.");
+            updateStock(itemName, totalItems);
+        } else {
+            items.put(itemName, new Item(itemName, price, totalItems));
+            System.out.println("Item added: " + itemName);
         }
     }
 
-    // Finds an item by its name and returns the Inventory object
-    public Inventory findItemByName(String name) {
-        return items.get(name);  // Direct lookup using the name as the key
+    public void removeItem(String itemName) {
+        if (items.remove(itemName) != null) {
+            System.out.println("Item removed: " + itemName);
+        } else {
+            System.out.println("Item not found: " + itemName);
+        }
     }
 
-    // Returns all inventory items
-    public Iterable<Inventory> getInventoryItems() {
-        return items.values();  // Returns a collection of all inventory items
+    public void showMenu() {
+        if (items.isEmpty()) {
+            System.out.println("Menu is empty.");
+        } else {
+            for (Item item : items.values()) {
+                System.out.println(item.getName() + " - $" + item.getPrice() + " (Available: " + item.getTotalItems() + ")");
+            }
+        }
+    }
+
+    public void updateStock(String itemName, short newStock) {
+        Item item = items.get(itemName);
+        if (item != null) {
+            item.setTotalItems(newStock);
+            System.out.println("Stock updated: " + itemName);
+        } else {
+            System.out.println("Item not found: " + itemName);
+        }
+    }
+
+    public Map<String, Item> getItems() {
+        return items;
+    }
+
+    public static class Item {
+        private String name;
+        private float price;
+        private short totalItems;
+
+        public Item(String name, float price, short totalItems) {
+            this.name = name;
+            this.price = price;
+            this.totalItems = totalItems;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public float getPrice() {
+            return price;
+        }
+
+        public void setPrice(float price) {
+            this.price = price;
+        }
+
+        public short getTotalItems() {
+            return totalItems;
+        }
+
+        public void setTotalItems(short totalItems) {
+            this.totalItems = totalItems;
+        }
     }
 }

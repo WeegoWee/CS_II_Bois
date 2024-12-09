@@ -1,8 +1,4 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -43,9 +39,12 @@ public class Restaurant {
 
     // View staff members
     public void viewStaffMembers() {
-        for (Individual individual : individuals.values()) {
-            if (individual instanceof Staff) {
-                System.out.println("Name: " + individual.getName() + ", Role: " + individual.getRole() + ", ID: " + individual.getEmployeeID());
+        List<Individual> staffMembers = getIndividualsByRole("Staff");
+        if (staffMembers.isEmpty()) {
+            System.out.println("No staff members available.");
+        } else {
+            for (Individual staff : staffMembers) {
+                System.out.println("Name: " + staff.getName() + ", Role: " + staff.getRole() + ", ID: " + staff.getEmployeeID());
             }
         }
     }
@@ -68,101 +67,19 @@ public class Restaurant {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the name of the staff member to remove: ");
         String name = scanner.nextLine();
-        if (individuals.containsKey(name)) {
-            individuals.remove(name);
+        if (individuals.remove(name) != null) {
             System.out.println("Staff member " + name + " removed successfully.");
         } else {
             System.out.println("Staff member with name " + name + " does not exist.");
         }
     }
-    
-    // Method to load employees from CSV
-    public void loadEmployeesFromCSV(String filePath) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            reader.readLine();  // Skip header
 
-            while ((line = reader.readLine()) != null) {
-                String[] fields = line.split(",");
-                if (fields.length == 3) {
-                    String name = fields[0].trim();
-                    String role = fields[1].trim();
-                    String employeeID = fields[2].trim();
-                    addIndividual(new Staff(name, role, employeeID));
-                }
-            }
-            System.out.println("Employees loaded successfully.");
-        } catch (IOException e) {
-            System.out.println("Error loading employees from CSV: " + e.getMessage());
-        }
-    }
-
-    // Method to load customers from CSV
-    public void loadCustomersFromCSV(String filePath) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            reader.readLine();  // Skip header
-
-            while ((line = reader.readLine()) != null) {
-                String[] fields = line.split(",");
-                if (fields.length == 3) {
-                    String phoneNumber = fields[0].trim();
-                    String name = fields[1].trim();
-                    int rewardPoints = Integer.parseInt(fields[2].trim());  // Reward points field
-                    addIndividual(new Customer(name, phoneNumber, rewardPoints));  // No employeeID
-                }
-            }
-            System.out.println("Customers loaded successfully.");
-        } catch (IOException e) {
-            System.out.println("Error loading customers from CSV: " + e.getMessage());
-        }
-    }
-
-    // Method to save employees to CSV
-    public void saveEmployeesToCSV(String filePath) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            // Write header
-            writer.write("Name,Role,EmployeeID\n");
-            
-            for (Individual individual : individuals.values()) {
-                if (individual instanceof Staff) {
-                    Staff staff = (Staff) individual;
-                    writer.write(staff.getName() + "," + staff.getRole() + "," + staff.getEmployeeID() + "\n");
-                }
-            }
-            System.out.println("Employees saved successfully.");
-        } catch (IOException e) {
-            System.out.println("Error saving employees to CSV: " + e.getMessage());
-        }
-    }
-
-    // Method to save customers to CSV
-    public void saveCustomersToCSV(String filePath) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            // Write header
-            writer.write("PhoneNumber,Name,RewardPoints\n");
-
-            for (Individual individual : individuals.values()) {
-                if (individual instanceof Customer) {
-                    Customer customer = (Customer) individual;
-                    writer.write(customer.getPhoneNumber() + "," + customer.getName() + "," + customer.getRewardPoints() + "\n");
-                }
-            }
-            System.out.println("Customers saved successfully.");
-        } catch (IOException e) {
-            System.out.println("Error saving customers to CSV: " + e.getMessage());
-        }
-    }
-
-    // Method to save inventory to CSV
+    // Save inventory to CSV
     public void saveInventoryToCSV(String filePath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            // Write header
-            writer.write("ItemName,Price,TotalItems\n");
-            
-            // Write each inventory item to the CSV
-            for (Inventory item : menu.getItems().values()) {
-                writer.write(item.getItems() + "," + item.getPrice() + "," + item.getTotalItems() + "\n");
+            writer.write("ItemName,Price,TotalItems\n"); // Header
+            for (Menu.Item item : menu.getItems().values()) {
+                writer.write(item.getName() + "," + item.getPrice() + "," + item.getTotalItems() + "\n");
             }
             System.out.println("Inventory saved successfully.");
         } catch (IOException e) {
@@ -170,22 +87,18 @@ public class Restaurant {
         }
     }
 
-    // Method to load inventory from CSV
+    // Load inventory from CSV
     public void loadInventoryFromCSV(String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
-            reader.readLine();  // Skip header
-
+            reader.readLine(); // Skip header
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",");
                 if (fields.length == 3) {
                     String itemName = fields[0].trim();
-                    double price = Double.parseDouble(fields[1].trim());
-                    int totalItems = Integer.parseInt(fields[2].trim());
-
-                    // Add inventory item to menu
-                    Inventory item = new Inventory(itemName, (short) price, totalItems);
-                    menu.addItems(item);
+                    float price = Float.parseFloat(fields[1].trim());
+                    short totalItems = Short.parseShort(fields[2].trim());
+                    menu.addItem(itemName, price, totalItems);
                 }
             }
             System.out.println("Inventory loaded successfully.");
@@ -202,7 +115,7 @@ public class Restaurant {
                 .collect(Collectors.toList());
     }
 
-    Menu getMenu() {
+    public Menu getMenu() {
         return menu;
     }
 }
