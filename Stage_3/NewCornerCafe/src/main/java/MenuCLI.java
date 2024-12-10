@@ -13,38 +13,45 @@ public class MenuCLI {
         this.menu = restaurant.getMenu();  // Correctly initializing menu
     }
 
-    // Displays the initial menu
-public void displayMainMenu() {
-    while (true) {
-        System.out.println("*********************************");
-        System.out.println("****** Corner Cafe System *******");
-        System.out.println("|\t1. View Restaurant Info\t|");
-        System.out.println("|\t2. Staff Management\t|");
-        System.out.println("|\t3. Menu Management\t|");
-        System.out.println("|\t4. Order Management\t|");
-        System.out.println("|\t5. View Customers\t|");
-        System.out.println("|\t6. Exit\t\t\t|");
-        System.out.println("Select an option: ");
-        System.out.println("*********************************");
-        System.out.println("*********************************");
+        // Displays the initial menu
+    public void displayMainMenu() {
+        while (true) {
+            System.out.println("*********************************");
+            System.out.println("****** Corner Cafe System *******");
+            System.out.println("|\t1. View Restaurant Info\t|");
+            System.out.println("|\t2. Staff Management\t|");
+            System.out.println("|\t3. Menu Management\t|");
+            System.out.println("|\t4. Order Management\t|");
+            System.out.println("|\t5. View Customers\t|");
+            System.out.println("|\t6. View Sales Report\t|"); // New Sales Report option
+            System.out.println("|\t7. Exit\t\t\t|");
+            System.out.println("Select an option: ");
+            System.out.println("*********************************");
+            System.out.println("*********************************");
 
-        int choice = getValidChoice(6);
-        switch (choice) {
-            case 1: restaurant.showInfo(); break;
-            case 2: manageStaffMenu(); break;
-            case 3: manageMenu(); break;
-            case 4: displayOrderMenu(); break;
-            case 5: viewCustomers(); break;
-            case 6:
-                System.out.println("Exiting the application...");
-                saveDataOnExit();
-                scanner.close();
-                return;
-            default:
-                System.out.println("Invalid choice. Please try again.");
+            int choice = getValidChoice(7);
+            switch (choice) {
+                case 1: restaurant.showInfo(); break;
+                case 2: manageStaffMenu(); break;
+                case 3: manageMenu(); break;
+                case 4: displayOrderMenu(); break;
+                case 5: viewCustomers(); break;
+                case 6: generateSalesReport(); break; // New case for Sales Report
+                case 7:
+                    System.out.println("Exiting the application...");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
         }
     }
-}
+    
+        // Method to generate a sales report
+        private void generateSalesReport() {
+            System.out.println("********** Sales Report *********");
+            restaurant.generateSalesReport();
+        }
    
 
     // Displays staff management menu
@@ -56,19 +63,35 @@ public void displayMainMenu() {
             System.out.println("|\t1. View Staff\t\t|");
             System.out.println("|\t2. Add Staff\t\t|");
             System.out.println("|\t3. Remove Staff\t\t|");
-            System.out.println("|\t4. Back to Main Menu\t|");
+            System.out.println("|\t4. Search Staff by ID\t|"); // New search option
+            System.out.println("|\t5. Back to Main Menu\t|");
             System.out.println("|\tSelect an option: \t|");
             System.out.println("*********************************");
             System.out.println("*********************************");
 
-            int choice = getValidChoice(4);  // Get valid choice with range check
+            int choice = getValidChoice(5);  // Get valid choice with range check
             switch (choice) {
                 case 1: restaurant.viewStaffMembers(); break;
                 case 2: restaurant.addStaffMember(); break;
                 case 3: restaurant.removeStaffMember(); break;
-                case 4: return;
+                case 4: searchStaffByID(); break;  // New case for searching staff by ID
+                case 5: return;
                 default: System.out.println("Invalid choice. Please try again.");
             }
+        }
+    }
+
+    // New method to search for staff by ID
+    private void searchStaffByID() {
+        System.out.print("Enter employee ID to search: ");
+        String employeeID = scanner.nextLine();
+
+        Staff staff = restaurant.searchStaffByID(employeeID); // Use search method from Restaurant class
+        if (staff != null) {
+            System.out.println("Staff found: ");
+            System.out.println("Name: " + staff.getName() + ", Position: " + staff.getPosition() + ", ID: " + staff.getEmployeeID());
+        } else {
+            System.out.println("No staff member found with ID: " + employeeID);
         }
     }
 
@@ -87,8 +110,8 @@ public void displayMainMenu() {
 
             int choice = getValidChoice(4);  // Get valid choice with range check
             switch (choice) {
-                case 1: addMenuItem(); break;
-                case 2: removeMenuItem(); break;
+                case 1: restaurant.addMenuItem(); break;
+                case 2: restaurant.removeMenuItem(); break;
                 case 3: menu.showMenu(); break;
                 case 4: return;
                 default: System.out.println("Invalid choice. Please try again.");
@@ -96,34 +119,7 @@ public void displayMainMenu() {
         }
     }
 
-    // Adds an item to the menu
-    private void addMenuItem() {
-        System.out.println("Enter item name: ");
-        String itemName = scanner.nextLine();
-        System.out.println("Enter item price: ");
-        float price = scanner.nextFloat();
-        System.out.println("Enter total items: ");
-        short totalItems = scanner.nextShort();
-        scanner.nextLine();  // Clear the buffer
 
-        Inventory newItem = new Inventory(itemName, totalItems, price);
-        menu.addItems(newItem);
-        System.out.println("Added new item: " + itemName);
-    }
-
-    // Removes an item from the menu
-    private void removeMenuItem() {
-        System.out.println("Enter item name to remove: ");
-        String itemName = scanner.nextLine();
-        Inventory itemToRemove = menu.findItemByName(itemName);
-
-        if (itemToRemove != null) {
-            menu.removeItems(itemToRemove);
-            System.out.println("Removed item: " + itemName);
-        } else {
-            System.out.println("Item not found.");
-        }
-    }
 
     // Displays the order menu
     public void displayOrderMenu() {
@@ -178,20 +174,4 @@ public void displayMainMenu() {
             }
         }
     }
-    
-    // New method to save data when exiting the program
-    private void saveDataOnExit() {
-    // Specify file paths
-    String employeesFilePath = "src/main/resources/employees.csv";
-    String customersFilePath = "src/main/resources/customers.csv";
-    String inventoryFilePath = "src/main/resources/inventory.csv";
-    
-    // Save data to CSV files
-    restaurant.saveEmployeesToCSV(employeesFilePath);
-    restaurant.saveCustomersToCSV(customersFilePath);
-    restaurant.saveInventoryToCSV(inventoryFilePath);
-
-    System.out.println("Data saved successfully.");
-    }
-
 }

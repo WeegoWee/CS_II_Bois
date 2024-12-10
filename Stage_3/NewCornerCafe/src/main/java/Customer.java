@@ -1,13 +1,13 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Customer extends Individual {
     private int rewardPoints;
     private String phoneNumber;
-    private List<String> orders = new ArrayList<>();
+    private Map<String, String> orders = new HashMap<>(); // Map for storing orders
 
     public Customer(String name, String phoneNumber, int rewardPoints) {
-        super(name, "Customer");
+        super(name);  // Only name is passed to Individual constructor
         this.phoneNumber = phoneNumber;
         this.rewardPoints = rewardPoints;
     }
@@ -29,11 +29,13 @@ public class Customer extends Individual {
         }
     }
 
-    public void addOrder(String order) {
-        orders.add(order);
+    // Method to add order with a unique order ID
+    public void addOrder(String orderId, String order) {
+        orders.put(orderId, order);
     }
 
-    public List<String> getOrders() {
+    // Method to get orders
+    public Map<String, String> getOrders() {
         return orders;
     }
 

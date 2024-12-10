@@ -1,28 +1,21 @@
 public abstract class Individual {
     private String name;
-    private String role;
-    private String employeeID;  // This will be optional for non-Staff subclasses
+    private String employeeID;  // Optional, only for Staff
 
-    // Constructor for individuals with an employeeID (e.g., Staff)
-    public Individual(String name, String role, String employeeID) {
+    // Constructor for individuals with employeeID (e.g., Staff)
+    public Individual(String name, String employeeID) {
         this.name = name;
-        this.role = role;
         this.employeeID = employeeID;
     }
 
-    // Constructor for individuals without an employeeID (e.g., Customer)
-    public Individual(String name, String role) {
+    // Constructor for individuals without employeeID (e.g., Customer)
+    public Individual(String name) {
         this.name = name;
-        this.role = role;
         this.employeeID = null;  // No employeeID for non-staff individuals
     }
 
     public String getName() {
         return name;
-    }
-
-    public String getRole() {
-        return role;
     }
 
     public String getEmployeeID() {
@@ -31,10 +24,6 @@ public abstract class Individual {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public void setEmployeeID(String employeeID) {

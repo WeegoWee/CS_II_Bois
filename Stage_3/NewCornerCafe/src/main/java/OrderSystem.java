@@ -85,7 +85,7 @@ public class OrderSystem {
         int quantity = scanner.nextInt();
         scanner.nextLine(); // Consume newline
 
-        Menu itemToOrder = menu.findItemByName(itemName);
+        Inventory itemToOrder = menu.findItemByName(itemName);
         if (itemToOrder != null && itemToOrder.getTotalItems() >= quantity) {
             itemToOrder.setTotalItems((short) (itemToOrder.getTotalItems() - quantity)); // Deduct quantity from stock
             addToOrder(tableID, itemToOrder, quantity); // Call the method to add the order

@@ -1,17 +1,12 @@
-
 public class Staff extends Individual {
-    private String employeeID;
+    private String position;
 
-    public Staff(String name, String role, String employeeID) {
-        super(name, role, employeeID);
-        this.employeeID = employeeID;
+    public Staff(String name, String position, String employeeID) {
+        super(name, employeeID);  // Passing name and employeeID
+        this.position = position;
     }
 
-    public String getEmployeeID() {
-        return employeeID;
-    }
-
-    public void setEmployeeID(String employeeID) {
-        this.employeeID = employeeID;
+    public String getPosition() {
+        return position;
     }
 }

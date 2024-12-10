@@ -6,8 +6,10 @@ NewCornerCafe.class
 Inventory.class
 Customer.class
 Main.class
+Restaurant$Order.class
 OrderSystem$Order.class
 CreditCardPayment.class
+Restaurant$orders.class
 Staff.class
 PointSystem.class
 Menu.class
