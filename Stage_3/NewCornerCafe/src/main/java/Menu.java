@@ -41,7 +41,7 @@ public class Menu {
         }
     }
 
-    Inventory findItemByName(String itemName) {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
+    public Inventory findItemByName(String itemName) {
+    return items.get(itemName);  // Returns the Inventory object associated with the item name
+}
 }

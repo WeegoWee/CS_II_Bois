@@ -26,6 +26,9 @@ public class OrderSystem {
         this.pointSystem = new PointSystem();
         this.itemsSold = new HashMap<>();
     }
+    public OrderSystem(){
+        
+    }
 
     // Nested Order class to represent individual orders
     private class Order {
