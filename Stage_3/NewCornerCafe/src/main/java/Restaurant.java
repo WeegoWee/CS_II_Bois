@@ -37,10 +37,10 @@ public class Restaurant {
     }
 
     // Show restaurant info
-    public void showInfo() {
-        System.out.println("Restaurant Name: Corner Cafe");
-        System.out.println("Address: 123 Main St, SomeCity, SomeState");
-    }
+   public String showInfo() {
+    // Concatenate the strings into one string and return it
+    return "Restaurant Name: Corner Cafe\nAddress: 123 Main St, SomeCity, SomeState";
+}
 
     // View staff members
     public void viewStaffMembers() {

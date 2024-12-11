@@ -16,7 +16,11 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
     public RestaurantInfoGUI() {
         restaurant = new Restaurant();
         initComponents();
+        
+        lblRestInfo.setText(restaurant.showInfo());
+        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,9 +31,13 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         pnlOne = new javax.swing.JPanel();
         MainButton = new javax.swing.JButton();
         lblCornerCafe = new javax.swing.JLabel();
+        lblRestInfo = new javax.swing.JLabel();
+
+        jLabel1.setText("jLabel1");
 
         MainButton.setText("Click Me!");
         MainButton.addActionListener(new java.awt.event.ActionListener() {
@@ -45,25 +53,24 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
         pnlOne.setLayout(pnlOneLayout);
         pnlOneLayout.setHorizontalGroup(
             pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlOneLayout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
-                .addGroup(pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOneLayout.createSequentialGroup()
-                        .addComponent(lblCornerCafe)
-                        .addGap(107, 107, 107))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOneLayout.createSequentialGroup()
-                        .addComponent(MainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(119, 119, 119))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOneLayout.createSequentialGroup()
+                .addContainerGap(125, Short.MAX_VALUE)
+                .addGroup(pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(MainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCornerCafe))
+                .addGap(107, 107, 107))
         );
         pnlOneLayout.setVerticalGroup(
             pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOneLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblCornerCafe)
-                .addGap(102, 102, 102)
+                .addGap(107, 107, 107)
                 .addComponent(MainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
+                .addGap(91, 91, 91))
         );
+
+        lblRestInfo.setFont(new java.awt.Font("Yu Gothic Medium", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,17 +78,23 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlOne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addGap(0, 33, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblRestInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnlOne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(221, 221, 221))
+                .addComponent(pnlOne, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(lblRestInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(203, 203, 203))
         );
 
-        setSize(new java.awt.Dimension(447, 433));
+        setSize(new java.awt.Dimension(480, 460));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -127,7 +140,9 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton MainButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCornerCafe;
+    private javax.swing.JLabel lblRestInfo;
     private javax.swing.JPanel pnlOne;
     // End of variables declaration//GEN-END:variables
 }
