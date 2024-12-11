@@ -123,7 +123,7 @@ public class Restaurant {
         float price = scanner.nextFloat();
         System.out.print("Enter total items: ");
         short totalItems = scanner.nextShort();
-        scanner.nextLine();  // Clear the buffer
+        scanner.nextLine();  
 
         Inventory newItem = new Inventory(itemName, totalItems, price);
         menu.addItems(newItem);
@@ -217,7 +217,7 @@ public class Restaurant {
     // Method to save customers to CSV
     public void saveCustomersToCSV(String filePath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            // Write header
+            
             writer.write("Name,PhoneNumber,RewardPoints\n");
 
             for (Individual individual : individuals.values()) {
@@ -298,17 +298,17 @@ public class Restaurant {
     public void generateSalesReport() {
         // Aggregating total sales
         double totalSales = 0;
-        Map<String, Integer> itemSales = new HashMap<>();  // Tracks how many times each item was sold
+        Map<String, Integer> itemSales = new HashMap<>();  
 
-        // Loop through all orders (assuming orders are tracked in the OrderSystem or a similar structure)
-        for (Order order : getAllOrders()) {  // Assuming getAllOrders() gives you all completed orders
-            if (order.isPaid()) {  // Check if the order has been paid
-                totalSales += order.getTotalAmount();  // Add total amount of order to total sales
+        
+        for (Order order : getAllOrders()) {  
+            if (order.isPaid()) {  
+                totalSales += order.getTotalAmount();  
 
                 // Track sales per item
                 for (Inventory item : order.getOrderedItems()) {
                     String itemName = item.getItems();
-                    itemSales.put(itemName, itemSales.getOrDefault(itemName, 0) + 1);  // Increment item sale count
+                    itemSales.put(itemName, itemSales.getOrDefault(itemName, 0) + 1);  
                 }
             }
         }
@@ -323,15 +323,15 @@ public class Restaurant {
             System.out.println(entry.getKey() + ": " + entry.getValue() + " sold");
         }
 
-        // Additional metrics (if any)
-        System.out.println("\nTotal number of orders: " + getCompletedOrdersCount()); // Assuming a method to count completed orders
+        
+        System.out.println("\nTotal number of orders: " + getCompletedOrdersCount()); 
         System.out.println("*********************************");
     }
 
     private static class orders {
 
         private static Object stream() {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            throw new UnsupportedOperationException("Not supported yet."); 
         }
 
         public orders() {
@@ -348,7 +348,7 @@ public class Restaurant {
         public Order(List<Inventory> orderedItems, double totalAmount) {
             this.orderedItems = orderedItems;
             this.totalAmount = totalAmount;
-            this.paid = false;  // By default, the order is not paid
+            this.paid = false;  
         }
 
         public List<Inventory> getOrderedItems() {
@@ -364,11 +364,11 @@ public class Restaurant {
         }
 
         public void makePayment() {
-            this.paid = true;  // Mark the order as paid
+            this.paid = true;  
         }
     }
     
-    private List<Order> orders = new ArrayList<>();  // Holds all orders
+    private List<Order> orders = new ArrayList<>();  
 
     public List<Order> getAllOrders() {
         return orders.stream()

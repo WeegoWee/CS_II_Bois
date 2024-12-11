@@ -10,6 +10,14 @@ public class Inventory {
         this.price = price;
     }
 
+    // Default constructor with default values
+    Inventory() {
+        this.items = "Unknown";
+        this.totalItems = 0;
+        this.price = 0.0f;
+    }
+
+
     // Getter for item name
     public String getItems() {
         return items;

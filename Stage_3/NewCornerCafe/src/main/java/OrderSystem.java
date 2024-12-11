@@ -39,8 +39,8 @@ public class OrderSystem {
             this.orderNumber = ++orderCounter; // Generate a unique order number
             this.itemName = itemName;
             this.quantity = quantity;
-            this.orderTime = LocalTime.now(); // Record time the order was placed
-            this.orderDate = LocalDate.now(); // Record date the order was placed
+            this.orderTime = LocalTime.now(); 
+            this.orderDate = LocalDate.now(); 
         }
 
         public int getOrderNumber() {
@@ -74,7 +74,7 @@ public class OrderSystem {
     // Method to place an order
     public void placeOrder() {
         System.out.println("Available Menu Items:");
-        menu.showMenu(); // Display available menu items
+        menu.showMenu(); 
 
         System.out.print("Enter the table ID for the order: ");
         String tableID = scanner.nextLine();
@@ -83,12 +83,12 @@ public class OrderSystem {
         String itemName = scanner.nextLine();
         System.out.print("Enter quantity: ");
         int quantity = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
 
         Inventory itemToOrder = menu.findItemByName(itemName);
         if (itemToOrder != null && itemToOrder.getTotalItems() >= quantity) {
-            itemToOrder.setTotalItems((short) (itemToOrder.getTotalItems() - quantity)); // Deduct quantity from stock
-            addToOrder(tableID, itemToOrder, quantity); // Call the method to add the order
+            itemToOrder.setTotalItems((short) (itemToOrder.getTotalItems() - quantity)); 
+            addToOrder(tableID, itemToOrder, quantity); 
             System.out.println("Order placed successfully.");
         } else {
             System.out.println("Item not available or insufficient stock.");
@@ -97,8 +97,8 @@ public class OrderSystem {
 
     // Method to add an order to a specific table
     private void addToOrder(String tableID, Inventory itemToOrder, int quantity) {
-        Order newOrder = new Order(itemToOrder.getItems(), quantity); // Create new order
-        orders.computeIfAbsent(tableID, k -> new ArrayList<>()).add(newOrder); // Add order to the table's list
+        Order newOrder = new Order(itemToOrder.getItems(), quantity); 
+        orders.computeIfAbsent(tableID, k -> new ArrayList<>()).add(newOrder); 
     }
 
     // Method to view current orders
@@ -126,7 +126,7 @@ public class OrderSystem {
             for (Order order : tableOrders) {
                 Inventory item = menu.findItemByName(order.getItemName());
                 if (item != null) {
-                    total += item.getPrice() * order.getQuantity(); // Calculate total based on item price and quantity
+                    total += item.getPrice() * order.getQuantity(); 
                 }
             }
         }
@@ -155,9 +155,9 @@ public class OrderSystem {
             for (Order order : tableOrders) {
                 Inventory item = menu.findItemByName(order.getItemName());
                 if (item != null) {
-                    totalSales += item.getPrice() * order.getQuantity(); // Add to total sales
-                    totalOrders++; // Increment total order count
-                    totalItemsSold += order.getQuantity(); // Increment total items sold count
+                    totalSales += item.getPrice() * order.getQuantity(); 
+                    totalOrders++; 
+                    totalItemsSold += order.getQuantity(); 
 
                     // Update the itemsSold map
                     itemsSold.put(order.getItemName(), 
@@ -241,13 +241,13 @@ public class OrderSystem {
             System.out.println("1. Cash");
             System.out.println("2. Credit Card");
             int paymentChoice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
  
             switch (paymentChoice) {
                 case 1:
                     System.out.print("Enter amount received: ");
                     double cashReceived = scanner.nextDouble();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine(); 
                     if (cashReceived >= totalAmount) {
                         CashPayment cashPayment = new CashPayment((float) totalAmount, tableID);
                         cashPayment.paymentDetails();
@@ -302,7 +302,7 @@ public class OrderSystem {
             }
             System.out.print("Enter the order number to remove: ");
             int orderNumber = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
 
             boolean orderFound = false;
             for (Order order : tableListOrders) {
