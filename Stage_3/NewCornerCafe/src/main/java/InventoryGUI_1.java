@@ -11,12 +11,13 @@ public class InventoryGUI_1 extends javax.swing.JFrame {
         fillTableWithInventory(); // Fill the table with items from the menu
     }
 
-    private InventoryGUI_1() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public InventoryGUI_1() {
+        
     }
 
     // Method to fill table with items from Menu
     public void fillTableWithInventory() {
+        
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         
         // Clear existing data

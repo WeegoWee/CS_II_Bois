@@ -25,4 +25,6 @@ public class NewCornerCafe {
         // Start the application by displaying the main menu
         menuCLI.displayMainMenu();
     }
+    
+    
 }

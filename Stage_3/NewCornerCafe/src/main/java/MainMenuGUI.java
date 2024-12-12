@@ -8,15 +8,16 @@
  * @author estra
  */
 public class MainMenuGUI extends javax.swing.JFrame {
-
+    private Restaurant restaurant;
     /**
      * Creates new form MainMenuGUI
      */
     public MainMenuGUI() {
-        
+        restaurant = new Restaurant();
         initComponents();
         
     }
+    
     
 //    public void displayRestaurantInfo() {
 //        txtRestInfo.setText(restaurant.showInfo());
@@ -135,8 +136,8 @@ public class MainMenuGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_staffButton3ActionPerformed
 
     private void inventoryButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButton4ActionPerformed
-        InventoryGUI invent = new InventoryGUI();
-        invent.setVisible(true);
+        InventoryGUI inventory = new InventoryGUI();
+        inventory.setVisible(true);
     }//GEN-LAST:event_inventoryButton4ActionPerformed
 
     /**
