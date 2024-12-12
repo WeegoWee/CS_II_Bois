@@ -1,3 +1,7 @@
+
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -41,10 +45,7 @@ public class InventoryGUI extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Item", "Price", "Quantity"
@@ -98,7 +99,15 @@ public class InventoryGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
+        // Load inventory from CSV file
+        List<Inventory> inventoryList = InventoryLoader.loadInventoryFromCSV("inventory.csv");
+
+        // Populate the table with data from the inventory list
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        for (Inventory item : inventoryList) {
+            Object[] rowData = { item.getItems(), item.getPrice(), item.getTotalItems()};
+            model.addRow(rowData);
+        }
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton_additemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_additemActionPerformed
@@ -107,34 +116,6 @@ public class InventoryGUI extends javax.swing.JFrame {
 
     private void jButton_removeitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_removeitemActionPerformed
         // Get the selected row index
-        int selectedRow = jTable1.getSelectedRow();
-
-        // Check if a row is selected
-        if (selectedRow >= 0) {
-            // Get the item name from the selected row (assuming the item name is in the first column)
-            String itemName = (String) jTable1.getValueAt(selectedRow, 0);
-
-            // Find and remove the inventory item from the menu
-            Inventory itemToRemove = null;
-            for (Inventory inventory : menu.getItems().values()) {
-                if (inventory.getItems().equals(itemName)) {
-                    itemToRemove = inventory;
-                    break;
-                }
-            }
-
-            // Remove the item from the menu
-            if (itemToRemove != null) {
-                menu.removeItems(itemToRemove);
-            }
-
-            // Remove the selected row from the table
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.removeRow(selectedRow);
-        } else {
-            // Show a message if no row is selected
-            javax.swing.JOptionPane.showMessageDialog(this, "Please select an item to remove.");
-        }
     }//GEN-LAST:event_jButton_removeitemActionPerformed
 
     /**
