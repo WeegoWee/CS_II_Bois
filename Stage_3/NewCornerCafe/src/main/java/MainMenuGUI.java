@@ -1,12 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 
-/**
- *
- * @author estra
- */
+
+
 public class MainMenuGUI extends javax.swing.JFrame {
     private Restaurant restaurant;
     /**
@@ -81,7 +75,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
                         .addComponent(inventoryButton4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(restInfoButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                         .addComponent(orderMenuButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(51, 51, 51))
         );
@@ -136,7 +130,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_staffButton3ActionPerformed
 
     private void inventoryButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButton4ActionPerformed
-        InventoryGUI_1 inventory = new InventoryGUI_1();
+        InventoryGUI inventory = new InventoryGUI();
         inventory.setVisible(true);
     }//GEN-LAST:event_inventoryButton4ActionPerformed
 

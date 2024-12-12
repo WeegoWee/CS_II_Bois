@@ -58,7 +58,7 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="restInfoButton1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="73" max="32767" attributes="0"/>
+                          <EmptySpace pref="77" max="32767" attributes="0"/>
                           <Component id="orderMenuButton2" min="-2" pref="113" max="-2" attributes="0"/>
                       </Group>
                   </Group>
