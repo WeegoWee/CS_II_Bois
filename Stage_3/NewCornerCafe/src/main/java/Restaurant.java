@@ -33,7 +33,7 @@ public class Restaurant {
         return address;
     }
     
-    public void setAddress(String Address){
+    public void setAddress(String address){
         this.address = address;
     }
 
