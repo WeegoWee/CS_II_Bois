@@ -11,7 +11,7 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
     private Restaurant restaurant;
 
     /**
-     * Creates RestaurantInfoGUI
+     * Creates new form RestaurantInfoGUI
      */
     public RestaurantInfoGUI() {
         restaurant = new Restaurant();

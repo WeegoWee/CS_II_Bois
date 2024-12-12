@@ -15,8 +15,9 @@ import javax.swing.table.DefaultTableModel;
  * @author estra
  */
 public class StaffGUI extends javax.swing.JFrame {
-
-    //Creates StaffGUI
+    /**
+     * Creates new form StaffGUI
+     */
     public StaffGUI() {
         initComponents();
     }
@@ -28,13 +29,13 @@ public class StaffGUI extends javax.swing.JFrame {
 }
     private void updateCSV() {
     try {
-        // Opens the CSV file in write and overwrites existing content
+        // Open the CSV file in write mode (overwrite existing content)
         FileWriter writer = new FileWriter("employees.csv");
 
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         int rowCount = model.getRowCount();
 
-        // Writes each row to the CSV file
+        // Write each row to the CSV file
         for (int i = 0; i < rowCount; i++) {
             String name = (String) model.getValueAt(i, 0);
             String role = (String) model.getValueAt(i, 1);
@@ -42,7 +43,7 @@ public class StaffGUI extends javax.swing.JFrame {
             writer.write(name + "," + role + "," + employeeID + "\n");
         }
 
-        writer.close();
+        writer.close(); // Close the writer after writing
         System.out.println("CSV file updated successfully.");
     } catch (Exception e) {
         JOptionPane.showMessageDialog(this, "Error updating CSV file: " + e.getMessage());
@@ -71,6 +72,7 @@ public class StaffGUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         lblStaff = new javax.swing.JLabel();
+        deleteButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -190,6 +192,13 @@ public class StaffGUI extends javax.swing.JFrame {
         lblStaff.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         lblStaff.setText("Staff");
 
+        deleteButton.setText("Delete");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -197,9 +206,15 @@ public class StaffGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                .addGap(16, 16, 16))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+                        .addGap(16, 16, 16))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(deleteButton)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(lblStaff)
@@ -215,7 +230,9 @@ public class StaffGUI extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(deleteButton)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
 
@@ -233,11 +250,12 @@ public class StaffGUI extends javax.swing.JFrame {
         BufferedReader reader = new BufferedReader(new FileReader(employees));
         String line;
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0); // Clears any existing rows
+        model.setRowCount(0); // Clear any existing rows
 
         while ((line = reader.readLine()) != null) {
-            String[] row = line.split(",");
-            model.addRow(row);
+            // Assuming the CSV format is: Name, Role, EmployeeID
+            String[] row = line.split(","); // Split the line by commas
+            model.addRow(row); // Add the row to the table model
         }
 
         reader.close();
@@ -261,13 +279,13 @@ public class StaffGUI extends javax.swing.JFrame {
         model.addRow(new Object[]{name, role, employeeID});
 
         try {
-        // Appends the new employee data to the CSV file
+        // Append the new employee data to the CSV file
             FileWriter writer = new FileWriter("employees.csv", true);
             writer.write(name + "," + role + "," + employeeID + "\n");
             writer.close();
 
             System.out.println("Employee added successfully.");
-            clearFields();
+            clearFields(); // Clear input fields after adding
         } catch (Exception e) {
             System.out.println("Error saving to file: " + e.getMessage());
         }
@@ -278,34 +296,59 @@ public class StaffGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-
+          // Get the selected row in the table
     int selectedRow = jTable1.getSelectedRow();
     
-    // If no row is selected, displays an error message
+    // If no row is selected, display an error message
     if (selectedRow == -1) {
         JOptionPane.showMessageDialog(this, "Please select a row to update.");
         return;
     }
 
+    // Get the values from the text fields
     String name = txtName.getText();
     String role = txtRole.getText();
     String employeeID = txtEmployeeID.getText();
 
-    // If any field is empty, shows an error message
+    // If any field is empty, show an error message
     if (name.isEmpty() || role.isEmpty() || employeeID.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Please fill in all fields.");
         return;
     }
 
+    // Update the row in the table
     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
     model.setValueAt(name, selectedRow, 0); // Update Name
     model.setValueAt(role, selectedRow, 1); // Update Role
     model.setValueAt(employeeID, selectedRow, 2); // Update Employee ID
 
+    // Update the CSV file with the new data
     updateCSV();
 
+    // Show a success message
     JOptionPane.showMessageDialog(this, "Employee data updated successfully.");
     }//GEN-LAST:event_updateButtonActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+         // Get the selected row in the table
+    int selectedRow = jTable1.getSelectedRow();
+    
+    // If no row is selected, show an error message
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(this, "Please select a row to delete.");
+        return;
+    }
+
+    // Remove the selected row from the table model
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.removeRow(selectedRow);
+
+    // After removing the row from the table, update the CSV file
+    updateCSV();
+
+    // Show a success message
+    JOptionPane.showMessageDialog(this, "Employee data deleted successfully.");
+    }//GEN-LAST:event_deleteButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -345,6 +388,7 @@ public class StaffGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JButton clearButton;
+    private javax.swing.JButton deleteButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

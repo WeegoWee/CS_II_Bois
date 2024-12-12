@@ -271,10 +271,10 @@ public class OrderMenuGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void totalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalButtonActionPerformed
-// Initializes the total variable
+// Initialize the total variable
     float total = 0;
 
-    // Gets the price and quantity for each item and add it to the total
+    // Get the price and quantity for each item and add it to the total
 
     // Avocado Toast
     Inventory avoToast = menu.findItemByName("Avocado Toast");
@@ -311,12 +311,12 @@ public class OrderMenuGUI extends javax.swing.JFrame {
         total += chai.getPrice() * chaiQuantity; // Add to total
     }
 
-    // Displays the total in a label or text field
-    txtTotal.setText("Total: $" + String.format("%.2f", total));
+    // Display the total in a label or text field
+    txtTotal.setText("Total: $" + String.format("%.2f", total)); // Display formatted total
     }//GEN-LAST:event_totalButtonActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
-
+        // Reset the total text field to an empty value or a default message
         txtTotal.setText("Total: $0.00");  // Reset the total to $0.00
 
         // Optionally, reset all JSpinners (quantities) to 0 or their default values
@@ -328,7 +328,7 @@ public class OrderMenuGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void sellButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellButtonActionPerformed
-
+        // Calculate the total cost (you can use the same code as in totalButtonActionPerformed)
     float total = 0;
 
     // Avocado Toast

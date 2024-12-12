@@ -1,5 +1,8 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import javax.swing.table.DefaultTableModel;
 import java.util.Map;
+import javax.swing.JOptionPane;
 
 public class InventoryGUI_1 extends javax.swing.JFrame {
 
@@ -7,12 +10,35 @@ public class InventoryGUI_1 extends javax.swing.JFrame {
 
     public InventoryGUI_1(Menu menu) {
         initComponents();
-        this.menu = menu; // Initializes the menu with the passed object
-        fillTableWithInventory(); // Fills the table with items from the menu
+        this.menu = menu; // Initialize the menu with the passed object
+        loadInventoryFromCSV("resources/inventory.csv"); // Load inventory from the CSV file
+        fillTableWithInventory(); // Fill the table with items from the menu
     }
 
-    public InventoryGUI_1() {
+    InventoryGUI_1() {
         
+    }
+
+    public void loadInventoryFromCSV(String filename) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            // Skip the header line
+            reader.readLine();
+            
+            // Read each line and parse the item data
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split(",");
+                String itemName = data[0];
+                double price = Double.parseDouble(data[1]);
+                int quantity = Integer.parseInt(data[2]);
+
+                // Create Inventory object and add it to the menu
+                Inventory inventory = new Inventory(itemName, (short) price, quantity);
+                menu.addItems(inventory);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error loading inventory from CSV: " + e.getMessage());
+        }
     }
 
     // Method to fill table with items from Menu
@@ -24,7 +50,7 @@ public class InventoryGUI_1 extends javax.swing.JFrame {
         model.setRowCount(0);
 
         // Get items from the menu's HashMap and add them to the table
-        Map<String, Inventory> items = menu.getItems(); // Fetches the items from the Menu
+        Map<String, Inventory> items = menu.getItems(); // Fetch the items from the Menu
         for (Inventory inventory : items.values()) {
             Object[] rowData = {inventory.getItems(), inventory.getPrice(), inventory.getTotalItems()};
             model.addRow(rowData);
@@ -116,12 +142,12 @@ public class InventoryGUI_1 extends javax.swing.JFrame {
         // Get the selected row index
                 int selectedRow = jTable1.getSelectedRow();
 
-                // Checks if a row is selected
+                // Check if a row is selected
                 if (selectedRow >= 0) {
-                    // Gets the item name from the selected row
+                    // Get the item name from the selected row (assuming the item name is in the first column)
                     String itemName = (String) jTable1.getValueAt(selectedRow, 0);
 
-                    // Finds and removes the inventory item from the menu
+                    // Find and remove the inventory item from the menu
                     Inventory itemToRemove = null;
                     for (Inventory inventory : menu.getItems().values()) {
                         if (inventory.getItems().equals(itemName)) {
@@ -130,16 +156,16 @@ public class InventoryGUI_1 extends javax.swing.JFrame {
                         }
                     }
 
-                    // Removes the item from the menu
+                    // Remove the item from the menu
                     if (itemToRemove != null) {
                         menu.removeItems(itemToRemove);
                     }
 
-                    // Removes the selected row from the table
+                    // Remove the selected row from the table
                     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
                     model.removeRow(selectedRow);
                 } else {
-                    // Shows a message if no row is selected
+                    // Show a message if no row is selected
                     javax.swing.JOptionPane.showMessageDialog(this, "Please select an item to remove.");
                 }
     }//GEN-LAST:event_jButton_removeitemActionPerformed
@@ -147,10 +173,10 @@ public class InventoryGUI_1 extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        // Sets the Nimbus look and feel
+        // Set the Nimbus look and feel
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -159,11 +185,11 @@ public class InventoryGUI_1 extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(InventoryGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-
+        // Create and display the form
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-
-                Menu menu = new Menu();
+                // Ensure you have a Menu object to pass
+                Menu menu = new Menu(); // Replace with actual Menu object initialization
                 new InventoryGUI(menu).setVisible(true);
             }
         });

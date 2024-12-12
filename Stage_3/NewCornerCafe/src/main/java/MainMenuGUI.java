@@ -136,7 +136,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_staffButton3ActionPerformed
 
     private void inventoryButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButton4ActionPerformed
-        InventoryGUI inventory = new InventoryGUI();
+        InventoryGUI_1 inventory = new InventoryGUI_1();
         inventory.setVisible(true);
     }//GEN-LAST:event_inventoryButton4ActionPerformed
 

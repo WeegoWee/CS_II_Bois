@@ -1,8 +1,8 @@
 public class AddItem_InventoyGUI_1 extends javax.swing.JFrame {
 
-    private InventoryGUI_1 parentGUI;
+    private InventoryGUI_1 parentGUI;  // Reference to parent InventoryGUI
 
-
+    // Modify the constructor to accept a reference to InventoryGUI
     public AddItem_InventoyGUI_1(InventoryGUI_1 parent) {
         this.parentGUI = parent;
         initComponents();

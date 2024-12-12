@@ -16,9 +16,7 @@ public class InventoryGUI extends javax.swing.JFrame {
         initComponents();
     }
 
-    InventoryGUI(Menu menu) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,20 +27,10 @@ public class InventoryGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlStaffInfo = new javax.swing.JPanel();
-        txtName = new javax.swing.JTextField();
-        txtRole = new javax.swing.JTextField();
-        txtEmployeeID = new javax.swing.JTextField();
-        lblName = new javax.swing.JLabel();
-        lblRole = new javax.swing.JLabel();
-        lblEmployeeID = new javax.swing.JLabel();
-        addButton = new javax.swing.JButton();
-        clearButton = new javax.swing.JButton();
-        updateButton = new javax.swing.JButton();
-        lblStaff = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        deleteButton = new javax.swing.JButton();
+        jButton_additem = new javax.swing.JButton();
+        jButton_removeitem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -50,76 +38,6 @@ public class InventoryGUI extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
-
-        pnlStaffInfo.setBorder(javax.swing.BorderFactory.createTitledBorder("Staff Info"));
-
-        txtEmployeeID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmployeeIDActionPerformed(evt);
-            }
-        });
-
-        lblName.setText("Name");
-
-        lblRole.setText("Role");
-
-        lblEmployeeID.setText("Employee ID");
-
-        addButton.setText("Add");
-
-        clearButton.setText("Clean");
-
-        updateButton.setText("Update");
-
-        javax.swing.GroupLayout pnlStaffInfoLayout = new javax.swing.GroupLayout(pnlStaffInfo);
-        pnlStaffInfo.setLayout(pnlStaffInfoLayout);
-        pnlStaffInfoLayout.setHorizontalGroup(
-            pnlStaffInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlStaffInfoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlStaffInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtName)
-                    .addComponent(txtRole)
-                    .addComponent(txtEmployeeID)
-                    .addGroup(pnlStaffInfoLayout.createSequentialGroup()
-                        .addGroup(pnlStaffInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblName)
-                            .addComponent(lblRole)
-                            .addComponent(lblEmployeeID)
-                            .addComponent(updateButton))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnlStaffInfoLayout.createSequentialGroup()
-                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                        .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        pnlStaffInfoLayout.setVerticalGroup(
-            pnlStaffInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlStaffInfoLayout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(lblName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addComponent(lblRole)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addComponent(lblEmployeeID)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEmployeeID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlStaffInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(clearButton))
-                .addGap(18, 18, 18)
-                .addComponent(updateButton)
-                .addGap(34, 34, 34))
-        );
-
-        lblStaff.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
-        lblStaff.setText("Staff");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -129,27 +47,24 @@ public class InventoryGUI extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Name", "Role", "Employee ID"
+                "Item", "Price", "Quantity"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(jTable1);
 
-        deleteButton.setText("Delete");
+        jButton_additem.setText("Add Item");
+        jButton_additem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_additemActionPerformed(evt);
+            }
+        });
+
+        jButton_removeitem.setText("Remove Item");
+        jButton_removeitem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_removeitemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,49 +72,70 @@ public class InventoryGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblStaff)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pnlStaffInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(92, 92, 92)
-                                .addComponent(deleteButton)
-                                .addGap(0, 98, Short.MAX_VALUE)))))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(jButton_additem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addComponent(jButton_removeitem)
+                .addGap(54, 54, 54))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(lblStaff)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlStaffInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 7, Short.MAX_VALUE)
-                        .addComponent(deleteButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_additem)
+                    .addComponent(jButton_removeitem))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        setSize(new java.awt.Dimension(466, 402));
+        setSize(new java.awt.Dimension(421, 323));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtEmployeeIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmployeeIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmployeeIDActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButton_additemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_additemActionPerformed
+
+    }//GEN-LAST:event_jButton_additemActionPerformed
+
+    private void jButton_removeitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_removeitemActionPerformed
+        // Get the selected row index
+        int selectedRow = jTable1.getSelectedRow();
+
+        // Check if a row is selected
+        if (selectedRow >= 0) {
+            // Get the item name from the selected row (assuming the item name is in the first column)
+            String itemName = (String) jTable1.getValueAt(selectedRow, 0);
+
+            // Find and remove the inventory item from the menu
+            Inventory itemToRemove = null;
+            for (Inventory inventory : menu.getItems().values()) {
+                if (inventory.getItems().equals(itemName)) {
+                    itemToRemove = inventory;
+                    break;
+                }
+            }
+
+            // Remove the item from the menu
+            if (itemToRemove != null) {
+                menu.removeItems(itemToRemove);
+            }
+
+            // Remove the selected row from the table
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.removeRow(selectedRow);
+        } else {
+            // Show a message if no row is selected
+            javax.swing.JOptionPane.showMessageDialog(this, "Please select an item to remove.");
+        }
+    }//GEN-LAST:event_jButton_removeitemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,19 +173,9 @@ public class InventoryGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addButton;
-    private javax.swing.JButton clearButton;
-    private javax.swing.JButton deleteButton;
+    private javax.swing.JButton jButton_additem;
+    private javax.swing.JButton jButton_removeitem;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblEmployeeID;
-    private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblRole;
-    private javax.swing.JLabel lblStaff;
-    private javax.swing.JPanel pnlStaffInfo;
-    private javax.swing.JTextField txtEmployeeID;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtRole;
-    private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 }
