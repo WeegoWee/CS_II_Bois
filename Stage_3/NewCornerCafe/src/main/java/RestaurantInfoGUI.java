@@ -16,6 +16,8 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
     public RestaurantInfoGUI() {
         restaurant = new Restaurant();
         initComponents();
+        lblCornerCafe.setText(restaurant.showName());
+        lblCornerAddress.setText(restaurant.showAddress());
     }
     
 
