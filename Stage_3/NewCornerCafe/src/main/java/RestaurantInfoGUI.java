@@ -157,7 +157,7 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
         String newAddress = txtAddress.getText();
         if (!newAddress.isEmpty()) {
             restaurant.setAddress(newAddress);
-            lblCornerAddress.setText(restaurant.showName());
+            lblCornerAddress.setText(restaurant.showAddress());
             txtAddress.setText("");
         } else {
             lblCornerAddress.setText("Address cannot be empty!");
@@ -165,13 +165,13 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_updateAddressActionPerformed
 
     private void UpdateNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateNameActionPerformed
-        String newAddress = txtAddress.getText();
-        if (!newAddress.isEmpty()) {
-            restaurant.setAddress(newAddress);
-            lblCornerCafe.setText(restaurant.showAddress());
+        String newName = txtName.getText();
+        if (!newName.isEmpty()) {
+            restaurant.setName(newName);
+            lblCornerCafe.setText(restaurant.showName());
             txtAddress.setText("");
         } else {
-            lblCornerCafe.setText("Address cannot be empty!");
+            lblCornerCafe.setText("Name cannot be empty!");
         }
     }//GEN-LAST:event_UpdateNameActionPerformed
 
