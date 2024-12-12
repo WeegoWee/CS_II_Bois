@@ -139,15 +139,15 @@ public class InventoryGUI_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_additemActionPerformed
 
     private void jButton_removeitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_removeitemActionPerformed
-        // Get the selected row index
+
                 int selectedRow = jTable1.getSelectedRow();
 
-                // Check if a row is selected
+
                 if (selectedRow >= 0) {
-                    // Get the item name from the selected row (assuming the item name is in the first column)
+
                     String itemName = (String) jTable1.getValueAt(selectedRow, 0);
 
-                    // Find and remove the inventory item from the menu
+
                     Inventory itemToRemove = null;
                     for (Inventory inventory : menu.getItems().values()) {
                         if (inventory.getItems().equals(itemName)) {
@@ -156,16 +156,16 @@ public class InventoryGUI_1 extends javax.swing.JFrame {
                         }
                     }
 
-                    // Remove the item from the menu
+
                     if (itemToRemove != null) {
                         menu.removeItems(itemToRemove);
                     }
 
-                    // Remove the selected row from the table
+
                     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
                     model.removeRow(selectedRow);
                 } else {
-                    // Show a message if no row is selected
+
                     javax.swing.JOptionPane.showMessageDialog(this, "Please select an item to remove.");
                 }
     }//GEN-LAST:event_jButton_removeitemActionPerformed
@@ -173,7 +173,7 @@ public class InventoryGUI_1 extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        // Set the Nimbus look and feel
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -185,11 +185,11 @@ public class InventoryGUI_1 extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(InventoryGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        // Create and display the form
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                // Ensure you have a Menu object to pass
-                Menu menu = new Menu(); // Replace with actual Menu object initialization
+
+                Menu menu = new Menu();
                 new InventoryGUI(menu).setVisible(true);
             }
         });

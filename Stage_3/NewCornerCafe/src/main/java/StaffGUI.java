@@ -29,13 +29,13 @@ public class StaffGUI extends javax.swing.JFrame {
 }
     private void updateCSV() {
     try {
-        // Open the CSV file in write mode (overwrite existing content)
+
         FileWriter writer = new FileWriter("employees.csv");
 
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         int rowCount = model.getRowCount();
 
-        // Write each row to the CSV file
+
         for (int i = 0; i < rowCount; i++) {
             String name = (String) model.getValueAt(i, 0);
             String role = (String) model.getValueAt(i, 1);
@@ -43,7 +43,7 @@ public class StaffGUI extends javax.swing.JFrame {
             writer.write(name + "," + role + "," + employeeID + "\n");
         }
 
-        writer.close(); // Close the writer after writing
+        writer.close();
         System.out.println("CSV file updated successfully.");
     } catch (Exception e) {
         JOptionPane.showMessageDialog(this, "Error updating CSV file: " + e.getMessage());
@@ -250,12 +250,12 @@ public class StaffGUI extends javax.swing.JFrame {
         BufferedReader reader = new BufferedReader(new FileReader(employees));
         String line;
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0); // Clear any existing rows
+        model.setRowCount(0);
 
         while ((line = reader.readLine()) != null) {
-            // Assuming the CSV format is: Name, Role, EmployeeID
-            String[] row = line.split(","); // Split the line by commas
-            model.addRow(row); // Add the row to the table model
+            
+            String[] row = line.split(",");
+            model.addRow(row);
         }
 
         reader.close();
@@ -279,13 +279,13 @@ public class StaffGUI extends javax.swing.JFrame {
         model.addRow(new Object[]{name, role, employeeID});
 
         try {
-        // Append the new employee data to the CSV file
+
             FileWriter writer = new FileWriter("employees.csv", true);
             writer.write(name + "," + role + "," + employeeID + "\n");
             writer.close();
 
             System.out.println("Employee added successfully.");
-            clearFields(); // Clear input fields after adding
+            clearFields();
         } catch (Exception e) {
             System.out.println("Error saving to file: " + e.getMessage());
         }
@@ -296,57 +296,56 @@ public class StaffGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-          // Get the selected row in the table
+
     int selectedRow = jTable1.getSelectedRow();
     
-    // If no row is selected, display an error message
+
     if (selectedRow == -1) {
         JOptionPane.showMessageDialog(this, "Please select a row to update.");
         return;
     }
 
-    // Get the values from the text fields
+
     String name = txtName.getText();
     String role = txtRole.getText();
     String employeeID = txtEmployeeID.getText();
 
-    // If any field is empty, show an error message
+
     if (name.isEmpty() || role.isEmpty() || employeeID.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Please fill in all fields.");
         return;
     }
 
-    // Update the row in the table
+
     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
     model.setValueAt(name, selectedRow, 0); // Update Name
     model.setValueAt(role, selectedRow, 1); // Update Role
     model.setValueAt(employeeID, selectedRow, 2); // Update Employee ID
 
-    // Update the CSV file with the new data
+
     updateCSV();
 
-    // Show a success message
+
     JOptionPane.showMessageDialog(this, "Employee data updated successfully.");
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-         // Get the selected row in the table
+
     int selectedRow = jTable1.getSelectedRow();
     
-    // If no row is selected, show an error message
+
     if (selectedRow == -1) {
         JOptionPane.showMessageDialog(this, "Please select a row to delete.");
         return;
     }
 
-    // Remove the selected row from the table model
     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
     model.removeRow(selectedRow);
 
-    // After removing the row from the table, update the CSV file
+
     updateCSV();
 
-    // Show a success message
+
     JOptionPane.showMessageDialog(this, "Employee data deleted successfully.");
     }//GEN-LAST:event_deleteButtonActionPerformed
 

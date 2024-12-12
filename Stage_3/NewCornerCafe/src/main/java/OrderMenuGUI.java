@@ -316,10 +316,10 @@ public class OrderMenuGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_totalButtonActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
-        // Reset the total text field to an empty value or a default message
-        txtTotal.setText("Total: $0.00");  // Reset the total to $0.00
 
-        // Optionally, reset all JSpinners (quantities) to 0 or their default values
+        txtTotal.setText("Total: $0.00");
+
+
         spnAvoToast.setValue(0);
         spnBLT.setValue(0);
         spnPanini.setValue(0);
@@ -328,7 +328,7 @@ public class OrderMenuGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void sellButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellButtonActionPerformed
-        // Calculate the total cost (you can use the same code as in totalButtonActionPerformed)
+
     float total = 0;
 
     // Avocado Toast
@@ -366,7 +366,7 @@ public class OrderMenuGUI extends javax.swing.JFrame {
         total += chai.getPrice() * chaiQuantity;
     }
 
-    // Open the SellGUI and pass the total value
+
     new SellGUI(total).setVisible(true);
     }//GEN-LAST:event_sellButtonActionPerformed
 
