@@ -1,0 +1,1 @@
+We created the GUI panels together via multiple Teams calls and we talked about the changes and overall result of how it was created visually. We also troubleshoot together the code to merge the CLI code to the Jpanels.

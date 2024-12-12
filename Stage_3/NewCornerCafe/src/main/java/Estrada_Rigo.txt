@@ -1,4 +1,0 @@
-1. Worked on all the classes together with my classmates. Mainly in the MenuCLI making sure that only menus and sub menus are in one location.
-2. Created the first draft of the Corner Cafe User Guide.
-3. Commented on most classes..
-4. Took screenshots of all the outputs for the system.
