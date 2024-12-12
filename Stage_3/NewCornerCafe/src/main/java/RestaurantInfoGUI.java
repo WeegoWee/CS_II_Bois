@@ -1,4 +1,12 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 
+/**
+ *
+ * @author estra
+ */
 public class RestaurantInfoGUI extends javax.swing.JFrame {
     private Restaurant restaurant;
 
@@ -8,9 +16,6 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
     public RestaurantInfoGUI() {
         restaurant = new Restaurant();
         initComponents();
-        
-        lblRestInfo.setText(restaurant.showInfo());
-        
     }
     
 
@@ -25,65 +30,111 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         pnlOne = new javax.swing.JPanel();
-        MainButton = new javax.swing.JButton();
+        UpdateName = new javax.swing.JButton();
         lblCornerCafe = new javax.swing.JLabel();
-        lblRestInfo = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtName = new javax.swing.JTextArea();
+        updateAddress = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtAddress = new javax.swing.JTextArea();
+        MainButton = new javax.swing.JButton();
+        lblCornerAddress = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
-        MainButton.setText("Click Me!");
+        UpdateName.setText("Update Name");
+        UpdateName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateNameActionPerformed(evt);
+            }
+        });
+
+        lblCornerCafe.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblCornerCafe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCornerCafe.setText("Corner Cafe");
+        lblCornerCafe.setToolTipText("");
+
+        txtName.setColumns(20);
+        txtName.setRows(5);
+        txtName.setText("Enter new restaurant name");
+        jScrollPane1.setViewportView(txtName);
+
+        updateAddress.setText("Update Address");
+        updateAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateAddressActionPerformed(evt);
+            }
+        });
+
+        txtAddress.setColumns(20);
+        txtAddress.setRows(5);
+        txtAddress.setText("Enter new restaurant address");
+        jScrollPane2.setViewportView(txtAddress);
+
+        MainButton.setText("Main Menu");
         MainButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MainButtonActionPerformed(evt);
             }
         });
 
-        lblCornerCafe.setFont(new java.awt.Font("Yu Gothic Medium", 0, 36)); // NOI18N
-        lblCornerCafe.setText("Corner Cafe");
+        lblCornerAddress.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblCornerAddress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCornerAddress.setText("123 Main St, SomeCity, SomeState");
 
         javax.swing.GroupLayout pnlOneLayout = new javax.swing.GroupLayout(pnlOne);
         pnlOne.setLayout(pnlOneLayout);
         pnlOneLayout.setHorizontalGroup(
             pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOneLayout.createSequentialGroup()
-                .addContainerGap(125, Short.MAX_VALUE)
-                .addGroup(pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(MainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCornerCafe))
-                .addGap(107, 107, 107))
+            .addGroup(pnlOneLayout.createSequentialGroup()
+                .addContainerGap(60, Short.MAX_VALUE)
+                .addGroup(pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlOneLayout.createSequentialGroup()
+                        .addComponent(updateAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(MainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlOneLayout.createSequentialGroup()
+                        .addComponent(UpdateName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCornerCafe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCornerAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         pnlOneLayout.setVerticalGroup(
             pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOneLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblCornerCafe)
-                .addGap(107, 107, 107)
+                .addContainerGap()
+                .addComponent(lblCornerCafe, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCornerAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGroup(pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(UpdateName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(updateAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
                 .addComponent(MainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91))
+                .addGap(115, 115, 115))
         );
-
-        lblRestInfo.setFont(new java.awt.Font("Yu Gothic Medium", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlOne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 33, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblRestInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(pnlOne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnlOne, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(lblRestInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(203, 203, 203))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlOne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(480, 460));
@@ -94,6 +145,28 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
         MainMenuGUI mainMenu = new MainMenuGUI();
         mainMenu.setVisible(true);
     }//GEN-LAST:event_MainButtonActionPerformed
+
+    private void updateAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateAddressActionPerformed
+        String newAddress = txtAddress.getText();
+        if (!newAddress.isEmpty()) {
+            restaurant.setAddress(newAddress);
+            lblCornerCafe.setText(restaurant.showInfo());
+            txtAddress.setText("");
+        } else {
+            lblCornerCafe.setText("Address cannot be empty!");
+        }
+    }//GEN-LAST:event_updateAddressActionPerformed
+
+    private void UpdateNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateNameActionPerformed
+        String newAddress = txtAddress.getText();
+        if (!newAddress.isEmpty()) {
+            restaurant.setAddress(newAddress);
+            lblCornerAddress.setText(restaurant.showInfo());
+            txtAddress.setText("");
+        } else {
+            lblCornerAddress.setText("Address cannot be empty!");
+        }
+    }//GEN-LAST:event_UpdateNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,9 +205,15 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton MainButton;
+    private javax.swing.JButton UpdateName;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblCornerAddress;
     private javax.swing.JLabel lblCornerCafe;
-    private javax.swing.JLabel lblRestInfo;
     private javax.swing.JPanel pnlOne;
+    private javax.swing.JTextArea txtAddress;
+    private javax.swing.JTextArea txtName;
+    private javax.swing.JButton updateAddress;
     // End of variables declaration//GEN-END:variables
 }

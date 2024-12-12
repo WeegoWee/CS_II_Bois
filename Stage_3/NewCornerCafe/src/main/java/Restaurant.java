@@ -11,10 +11,30 @@ public class Restaurant {
     private PointSystem pointSystem;
     private Menu menu;
     private Scanner scanner = new Scanner(System.in);
+    private String name;
+    private String address;
 
     public Restaurant() {
+        this.name = "Corner Cafe";
+        this.address = "123 Main St, SomeCity, SomeState";
         pointSystem = new PointSystem();
         menu = new Menu();
+    }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public void setName(String name){
+        this.name = name;
+    }
+    
+    public String getAddress(){
+        return address;
+    }
+    
+    public void setAddress(String Address){
+        this.address = address;
     }
 
     // Add individual
@@ -39,7 +59,7 @@ public class Restaurant {
     // Show restaurant info
    public String showInfo() {
     // Concatenate the strings into one string and return it
-    return "Restaurant Name: Corner Cafe\nAddress: 123 Main St, SomeCity, SomeState";
+    return "Name: " + name + "\nAddress: " + address;
 }
 
     // View staff members
