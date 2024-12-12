@@ -267,28 +267,36 @@ public class StaffGUI extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         String name = txtName.getText();
-        String role = txtRole.getText();
-        String employeeID = txtEmployeeID.getText();
+    String role = txtRole.getText();
+    String employeeID = txtEmployeeID.getText();
 
-        if (name.isEmpty() || role.isEmpty() || employeeID.isEmpty()) {
-            System.out.println("Please fill in all fields.");
+    if (name.isEmpty() || role.isEmpty() || employeeID.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Please fill in all fields.");
+        return;
+    }
+
+    // Check for duplicate Employee ID
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    for (int i = 0; i < model.getRowCount(); i++) {
+        if (model.getValueAt(i, 2).equals(employeeID)) {
+            JOptionPane.showMessageDialog(this, "Employee ID already exists. Please use a unique ID.");
             return;
         }
+    }
 
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.addRow(new Object[]{name, role, employeeID});
+    // Add the employee to the table and CSV file if no duplicate is found
+    model.addRow(new Object[]{name, role, employeeID});
 
-        try {
+    try {
+        FileWriter writer = new FileWriter("employees.csv", true);
+        writer.write(name + "," + role + "," + employeeID + "\n");
+        writer.close();
 
-            FileWriter writer = new FileWriter("employees.csv", true);
-            writer.write(name + "," + role + "," + employeeID + "\n");
-            writer.close();
-
-            System.out.println("Employee added successfully.");
-            clearFields();
-        } catch (Exception e) {
-            System.out.println("Error saving to file: " + e.getMessage());
-        }
+        JOptionPane.showMessageDialog(this, "Employee added successfully.");
+        clearFields();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error saving to file: " + e.getMessage());
+    }
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
