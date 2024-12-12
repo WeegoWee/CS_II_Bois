@@ -10,7 +10,7 @@
 public class SellGUI extends javax.swing.JFrame {
 
     /**
-     * Creates new form SellGUI
+     * Creates SellGUI
      */
     public SellGUI(float total) {
         initComponents();
