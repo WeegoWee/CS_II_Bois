@@ -110,15 +110,20 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
                 .addComponent(lblCornerCafe, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCornerAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(UpdateName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(updateAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(44, 44, 44)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOneLayout.createSequentialGroup()
+                        .addComponent(UpdateName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)))
+                .addGroup(pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlOneLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(updateAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOneLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)))
                 .addComponent(MainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(115, 115, 115))
         );
@@ -150,7 +155,7 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
         String newAddress = txtAddress.getText();
         if (!newAddress.isEmpty()) {
             restaurant.setAddress(newAddress);
-            lblCornerCafe.setText(restaurant.showInfo());
+            lblCornerCafe.setText(restaurant.showName());
             txtAddress.setText("");
         } else {
             lblCornerCafe.setText("Address cannot be empty!");
@@ -161,7 +166,7 @@ public class RestaurantInfoGUI extends javax.swing.JFrame {
         String newAddress = txtAddress.getText();
         if (!newAddress.isEmpty()) {
             restaurant.setAddress(newAddress);
-            lblCornerAddress.setText(restaurant.showInfo());
+            lblCornerAddress.setText(restaurant.showAddress());
             txtAddress.setText("");
         } else {
             lblCornerAddress.setText("Address cannot be empty!");

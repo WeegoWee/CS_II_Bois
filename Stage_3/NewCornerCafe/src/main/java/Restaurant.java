@@ -57,9 +57,13 @@ public class Restaurant {
     }
 
     // Show restaurant info
-   public String showInfo() {
+   public String showName() {
     // Concatenate the strings into one string and return it
-    return "Name: " + name + "\nAddress: " + address;
+    return name;
+}
+   public String showAddress() {
+    // Concatenate the strings into one string and return it
+    return address;
 }
 
     // View staff members
